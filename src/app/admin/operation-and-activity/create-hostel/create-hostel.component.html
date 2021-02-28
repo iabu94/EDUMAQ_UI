@@ -1,0 +1,155 @@
+<div class="page-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 page-col-nopadding">
+        <div class="card page-header-title card-title text-uppercase">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-4">
+                <span class="pagetitle">
+                  <i class="fas fa-building text-success font-size-18"></i>&nbsp; Create Hostel</span>
+              </div>
+              <div class="col-lg-8">
+                <div style="float: right !important">
+                  <button class="btn btn-secondary dropdown-toggle btn-option" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                    MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" style="
+                      position: absolute;
+                      transform: translate3d(-1px, 37px, 0px);
+                      top: 0px;
+                      left: 0px;
+                      will-change: transform;
+                    " x-placement="bottom-end">
+                    <a class="dropdown-item" href="#" data-target="#addLeave" data-toggle="modal">Create New Leave</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-4 col-left-nopadding">
+        <form [formGroup]="hostelForm" (ngSubmit)="submitForm()" class="needs-validation" novalidate>
+          <div class="card">
+            <div class="card-body">
+              <input type="hidden" formControlName="id" name="id" class="form-control" />
+              <div class="row">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Hostel Name</label>
+                </div>
+                <div class="col-lg-8">
+                  <input formControlName="name" name="name" class="form-control" type="text"
+                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Hostel Type</label>
+                </div>
+                <div class="col-lg-7">
+                  <select formControlName="type" name="type" class="form-control">
+                    <option value="0">Common</option>
+                    <option value="1">Boys</option>
+                    <option value="2">Girls</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <label class="col-form-label">Description</label>
+                </div>
+                <div class="col-lg-12">
+                  <textarea formControlName="description" name="description" class="form-control"
+                    style="height: 50px !important"></textarea>
+                </div>
+              </div>
+              <div class="row margin-top">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Status</label>
+                </div>
+                <div class="col-lg-7">
+                  <select formControlName="isActive" name="status" class="form-control">
+                    <option value="true">Active</option>
+                    <option value="false">Deactive</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row" style="margin-bottom: 25px"></div>
+              <div class="row">
+                <div class="col-lg-12 text-sm-right">
+                  <button type="button" (click)="resetForm()"
+                    class="btn w-sm btn-warning waves-effect waves-light mr-1">
+                    <i class="bx bx-revision align-middle mr-2"></i><b>Reset</b>
+                  </button>
+                  <button type="submit" class="btn w-sm btn-success waves-effect waves-light">
+                    <i class="bx bx-check-double align-middle mr-2"></i><b>Save Hostel</b>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-8 page-col-nopadding">
+        <div class="card">
+          <div class="card-body">
+            <div class="alert alert-secondary status-padding">
+              <div class="row">
+                <div class="col-lg-8">
+                  <button class="btn btn-info btn-sm waves-effect waves-light m-1">
+                    {{ totalRows }}
+                  </button>
+                </div>
+
+                <div class="col-lg-4">
+                  <input type="text" class="form-control" placeholder="Search" (keyup)="onKeyUpEvent($event)" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 table-responsive">
+                <table class="table table-striped mb-0">
+                  <thead>
+                    <tr class="thead-light">
+                      <th style="width: 25%">HOSTEL NAME</th>
+                      <th style="width: 20%">HOSTEL TYPE</th>
+                      <th style="width: 30%">DESCRIPTION</th>
+                      <th style="width: 25%" class="text-center">STATUS</th>
+                      <th style="width: 15%" class="text-center">ACTIONS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let hostel of filteredHostels; let i = index">
+                      <td>{{ hostel.name }}</td>
+                      <td>{{ HostelType[hostel.type] }}</td>
+                      <td>{{ !!hostel.description ? hostel.description : 'N/A' }}</td>
+                      <td class="text-center">
+                        <span class="badge badge-pill" [ngClass]="(hostel.isActive)?'badge-success':'badge-danger'">
+                          {{ hostel.isActive ? 'Active' : 'Deactive' }} </span>
+                      </td>
+                      <td style="text-align: center">
+                        <a href="javascript:void(0);" (click)="updateForm(hostel.id)" class="action-icon text-success">
+                          <i class="far fa-edit font-size-16"></i></a>
+                        <a href="javascript:void(0);" (click)="deleteForm(hostel.id)" class="action-icon text-danger">
+                          <i class="bx bxs-trash font-size-16"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- container-fluid -->
+</div>

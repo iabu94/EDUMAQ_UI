@@ -1,0 +1,227 @@
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-lg-12 page-col-nopadding">
+                <div class="card page-header-title card-title text-uppercase">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4"><span class="pagetitle"><i class=" fas fa-building  text-success font-size-18"></i>&nbsp; Hostel Attendance</span></div>
+                            <div class="col-lg-8  ">
+                                <div style="float:right !important">
+                                    <button class="btn btn-secondary dropdown-toggle btn-option" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" style="position: absolute; transform: translate3d(-1px, 37px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-end">
+                                        <a class="dropdown-item" href="#" data-target="#addLeave" data-toggle="modal">Create New Leave</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-left-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <select class="form-control" id="ddlSearchFor">
+                                    <option>Student</option>
+                                    <option>Employee</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-8" id="divddlStud">
+                                <select class="form-control select2" id="ddlStudent">
+                                    <option>Select Student</option>
+                                    <option>Rohan Kumar 1029</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-8" id="divEmp" >
+                                <select class="form-control select2" id="ddlEmployee">
+                                    <option>Select Employee</option>
+                                    <option> Sweety EMP001</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!--Student Details-->
+                        <div class="row margin-top" id="studDetails" style="">
+                            <div class="col-lg-4">
+                                <img style="height:90px" src="../../assets/images/users/avatar-1.jpg">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="table-borderless" style="width:100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td><h6>Student Name</h6></td>
+                                                    <td><h6>:</h6></td>
+                                                    <td><h6>Rohan Kumar</h6></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h6>Admission No</h6></td>
+                                                    <td><h6>:</h6></td>
+                                                    <td><h6>2789/2020</h6></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h6>Class</h6></td>
+                                                    <td><h6>:</h6></td>
+                                                    <td><h6>X A</h6></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h6>Roll NO</h6></td>
+                                                    <td><h6>:</h6></td>
+                                                    <td><h6>08</h6></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Employee Details-->
+                        <div class="row margin-top" id="empDetails" style="">
+                            <div class="col-lg-4">
+                                <img style="height:90px" src="../../assets/images/users/avatar-1.jpg">
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="  table-borderless" style="width:100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td><h6>Employee Name</h6></td>
+                                                    <td><h6>:</h6></td>
+                                                    <td><h6>Sweety Kumari</h6></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h6>Department</h6></td>
+                                                    <td><h6>:</h6></td>
+                                                    <td><h6>IT</h6></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h6>Designation</h6></td>
+                                                    <td><h6>:</h6></td>
+                                                    <td><h6>Teacher</h6></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><h6>Job Type</h6></td>
+                                                    <td><h6>:</h6></td>
+                                                    <td><h6>Full Time</h6></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row margin-top" id="hostelDetails" >
+                            <div class="col-lg-8">
+                                <h5 class="card-title"><i class="fas fa-filter  text-success"> </i> HOSTEL DETAILS</h5>
+                            </div>
+                            <div class="col-lg-12 margin-top ">
+                                <table style="width:100%">
+                                    <tbody>
+                                        <tr>
+                                            <td><h6>HOSTEL NAME</h6></td>
+                                            <td><h6>BOYS HOSTEL</h6></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h6>ALLOCATION DATE</h6></td>
+                                            <td><h6>12-05-2020</h6></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h6>ROOM TYPE</h6></td>
+                                            <td><h6>AC</h6></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h6>FLOOR</h6></td>
+                                            <td><h6>1ST </h6></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h6>ROOM NO</h6></td>
+                                            <td><h6>1</h6></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h6>BED NO</h6></td>
+                                            <td><h6>7 </h6></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h6>COST</h6></td>
+                                            <td><h6>500.00</h6></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h6>WARDEN NAME</h6></td>
+                                            <td><h6> ROHIT KUMAR</h6></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h6>WARDEN CONTACT</h6></td>
+                                            <td><h6>9890987878</h6></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 page-col-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="alert alert-secondary status-padding">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <h5 class="card-title" style="margin-top:8px"> ATTENDANCE SUMMARY</h5>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="form-control" placeholder="dd-mm-yyyy" data-provide="datepicker" data-date-autoclose="true">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="form-control" placeholder="dd-mm-yyyy" data-provide="datepicker" data-date-autoclose="true">
+                                </div>
+                                <div class="col-lg-1 text-sm-right">
+                                    <button class="btn btn-sm btn-success btn-search font-size-12"><i class="bx bx-search-alt"></i></button>
+                                </div>
+                                <div class="col-lg-1">
+                                    <button class="btn   btn-warning btn-search"><i class="fas fa-sync-alt "></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"  >
+                            <div class="col-lg-12 table-responsive">
+                                <table class="table table-striped mb-0  ">
+                                    <thead>
+                                        <tr class="thead-light">
+                                            <th style="width:20%">DATE</th>
+                                            <th style="width:20%">OUT TIME</th>
+                                            <th style="width:20%">IN TIME</th>
+                                            <th style="width:20%">IN SPEND</th>
+                                            <th style="width:20%">OUT SPEND</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>10-05-2020</td>
+                                            <td>10:20 AM</td>
+                                            <td>11:00AM</td>
+                                            <td>-</td>
+                                            <td>00:40</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container-fluid -->
+</div>

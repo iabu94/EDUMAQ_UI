@@ -1,0 +1,180 @@
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-lg-12 page-col-nopadding">
+                <div class="card page-header-title card-title text-uppercase">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4"><span class="pagetitle"><i
+                                        class=" fas fa-building  text-success font-size-18"></i>&nbsp; Hostel
+                                    Summary</span></div>
+                            <div class="col-lg-8  ">
+                                <div style="float:right !important">
+                                    <button class="btn btn-secondary dropdown-toggle btn-option" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="true">
+                                        MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right"
+                                        style="position: absolute; transform: translate3d(-1px, 37px, 0px); top: 0px; left: 0px; will-change: transform;"
+                                        x-placement="bottom-end">
+                                        <a class="dropdown-item" href="#" data-target="#addLeave"
+                                            data-toggle="modal">Create New Leave</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-left-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h5 class="card-title"><i class="fas fa-home text-success"> </i>CLASS SUMMARY</h5>
+                            </div>
+                            <div class="col-lg-12 table-responsive">
+                                <table class="table table-striped mb-0">
+                                    <thead>
+                                        <tr class="thead-light">
+                                            <th style="width:70%">CLASS</th>
+                                            <th style="width:30%">ALLOCATED </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let class of classes" id="classRow">
+                                            <td><a href="javascript:void(0)" (click)="filterSummary(class)"> {{
+                                                    class.classCode }} </a></td>
+                                            <td>20</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9 page-col-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="alert alert-secondary status-padding">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Search.." />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="tblStudentDetails">
+                            <div class="col-lg-12 table-responsive">
+                                <table class="table table-striped mb-0 font-size-12">
+                                    <thead>
+                                        <tr class="thead-light">
+                                            <th style="width:10%">ADMNS NO</th>
+                                            <th style="width:19%">STUDENT NAME</th>
+                                            <th style="width:5%">BATCH</th>
+                                            <th style="width:5%">ROLL</th>
+                                            <th style="width:19%">FATHER'S NAME</th>
+                                            <th style="width:12%">HOSTEL</th>
+                                            <th style="width:10%">ROOM NO</th>
+                                            <th style="width:10%">BED NO</th>
+                                            <th style="width:5%">FARE</th>
+                                            <th style="width:5%" class="text-center">ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let student of allocatedClassStudents">
+                                            <td>{{ student.admissionNo }}</td>
+                                            <td>{{ student.studentName }}</td>
+                                            <td>{{ getBatch(student.batchId) }}</td>
+                                            <td>{{ student.rollNo }}</td>
+                                            <td>{{ student.fatherName }}</td>
+                                            <td>{{ getHostel(student.id) }}</td>
+                                            <td>{{ getRoomNo(student.id) }}</td>
+                                            <td>{{ getBedNo(student.id) }} &nbsp; <i
+                                                    *ngIf="(getRoomTypeId(student.id) | roomType: roomTypes) === 'AC'"
+                                                    class="mdi mdi-air-conditioner text-success font-size-16"></i></td>
+                                            <td>{{ getBedfare(student.id) }}</td>
+                                            <td style="text-align:center">
+                                                <a href="#" (click)="showFeeDetails = true" data-target="#details"
+                                                    data-toggle="modal" class="action-icon text-info"> <i
+                                                        class=" bx bx-detail  font-size-18"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container-fluid -->
+</div>
+
+<div *ngIf="showFeeDetails" class="modal fade exampleModal" tabindex="-1" id="details" role="dialog"
+    aria-labelledby="exampleModalLabel" data-backdrop="static" aria-hidden="true">
+    <div style="max-width:500px !important" class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Hostel Fee Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-secondary status-padding">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button class="btn btn-sm btn-info waves-effect waves-light">
+                                <b>Ram Kumar's Details</b>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 table-responsive">
+                        <table class="table table-striped mb-0 ">
+                            <thead>
+                                <tr class="thead-light">
+                                    <th style="width:10%">INS NO</th>
+                                    <th style="width:20%">INSTALLMENT NAME</th>
+                                    <th style="width:15%">AMOUNT</th>
+                                    <th style="width:5%">PAID DATE</th>
+                                    <th style="width:5%" class="text-center">STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01</td>
+                                    <td>April 2020</td>
+                                    <td>500.00</td>
+                                    <td>12-03-2020</td>
+                                    <td class="text-center"><span class="badge badge-pill badge-success">Paid</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>02</td>
+                                    <td>May 2020</td>
+                                    <td>500.00</td>
+                                    <td></td>
+                                    <td class="text-center"><span class="badge badge-pill badge-danger">Unpaid</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

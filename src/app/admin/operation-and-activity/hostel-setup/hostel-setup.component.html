@@ -1,0 +1,577 @@
+<div class="page-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 page-col-nopadding">
+        <div class="card page-header-title card-title text-uppercase">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-4">
+                <span class="pagetitle">
+                  <i class="fas fa-building text-success font-size-18"></i>
+                  &nbsp; Hostel Setup</span
+                >
+              </div>
+
+              <div class="col-lg-8">
+                <div style="float: right !important">
+                  <button
+                    class="btn btn-secondary dropdown-toggle btn-option"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                  >
+                    MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                  </button>
+                  <div
+                    class="dropdown-menu dropdown-menu-right"
+                    style="
+                      position: absolute;
+                      transform: translate3d(-1px, 37px, 0px);
+                      top: 0px;
+                      left: 0px;
+                      will-change: transform;
+                    "
+                    x-placement="bottom-end"
+                  >
+                    <a class="dropdown-item" href="#" data-target="#addLeave" data-toggle="modal">Create New Leave</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!--Building & Infrastructure-->
+      <div *ngIf="showHostels" class="col-lg-4 col-left-nopadding">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <h5 class="card-title"><i class="fas fa-home text-success"> </i> &nbsp; BUILDING & INFRASTRUCTURE</h5>
+              </div>
+              <div class="col-lg-12 table-responsive">
+                <table class="table table-striped mb-0">
+                  <thead>
+                    <tr class="thead-light">
+                      <th style="width: 35%">HOSTEL</th>
+                      <th style="width: 35%">TYPE</th>
+                      <th style="width: 20%">ROOMS</th>
+                      <th style="width: 10%">BED</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="let hostel of hostels"
+                      [ngClass]="{ 'table-success': selectedHostel?.id === hostel.id }"
+                      id="trHostel"
+                      (click)="selectHostel(hostel)"
+                      style="cursor: pointer"
+                    >
+                      <td>{{ hostel.name }}</td>
+                      <td>{{ HostelType[hostel.type] }}</td>
+                      <td>{{ hostel | roomCount: floors:rooms }}</td>
+                      <td>{{ hostel | bedCount: floors:rooms:beds }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Floor-->
+      <div *ngIf="showFloors" class="col-lg-2 col-left-nopadding" id="divFloor">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-8">
+                <h5 class="card-title"><i class="fas fa-home text-success"> </i> &nbsp; FLOOR</h5>
+              </div>
+              <div class="col-lg-4 text-sm-right">
+                <a href="#" data-toggle="modal" data-target="#floorCreation"
+                  ><i class="fas fa-plus-circle text-info font-size-16"> </i>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 table-responsive">
+                <table class="table table-striped mb-0">
+                  <thead>
+                    <tr class="thead-light">
+                      <th>FLOOR</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="let floor of filteredFloors"
+                      [ngClass]="{ 'table-success': selectedFloor?.id === floor.id }"
+                      (click)="selectFloor(floor)"
+                      id="trFloor"
+                      style="cursor: pointer"
+                    >
+                      <td>{{ floor.floorNo }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Room-->
+      <div *ngIf="showRooms" class="col-lg-3 col-left-nopadding" id="divRoom">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-8">
+                <h5 class="card-title"><i class="fas fa-home text-success"> </i> &nbsp; ROOM</h5>
+              </div>
+              <div class="col-lg-4 text-sm-right">
+                <a href="#" data-target="#roomCreation" data-toggle="modal"
+                  ><i class="fas fa-plus-circle text-info font-size-16"> </i>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 table-responsive">
+                <table class="table table-striped mb-0">
+                  <thead>
+                    <tr class="thead-light">
+                      <th style="width: 60%">ROOM NO</th>
+                      <th style="width: 40%">TYPE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="let room of filteredRooms"
+                      id="trRoom"
+                      style="cursor: pointer"
+                      (click)="selectRoom(room)"
+                      [ngClass]="{ 'table-success': selectedRoom?.id === room.id }"
+                    >
+                      <td>{{ room.roomNo }}</td>
+                      <td>{{ room.roomTypeId | roomType: roomTypes }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Infra details-->
+      <div *ngIf="showBeds" class="col-lg-3 page-col-nopadding" id="divInfraDetails">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-10">
+                <h5 class="card-title"><i class="fas fa-bed text-success"> </i> &nbsp; INFRA DETAILS</h5>
+              </div>
+              <div class="col-lg-2 text-sm-right">
+                <a href="#" data-target="#infraCreation" data-toggle="modal"
+                  ><i class="fas fa-plus-circle text-info font-size-16"> </i>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 table-responsive">
+                <table class="table table-striped mb-0">
+                  <thead>
+                    <tr class="thead-light">
+                      <th>BED NO</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="let bed of filteredBeds"
+                      (click)="selectBed(bed)"
+                      [ngClass]="{ 'table-success': selectedBed?.id === bed.id }"
+                    >
+                      <td>{{ bed.bedNo }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- container-fluid -->
+</div>
+
+<!-- Floor Creation -->
+<div
+  class="modal fade exampleModal"
+  tabindex="-1"
+  id="floorCreation"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  data-backdrop="static"
+  aria-hidden="true"
+>
+  <div style="max-width: 400px !important" class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Floor Creation Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-secondary status-padding">
+          <div class="row">
+            <div class="col-lg-12">
+              <button class="btn btn-sm btn-info waves-effect waves-light">
+                <b>{{ selectedHostel?.name }}</b> <i class="fas fa-angle-double-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <form [formGroup]="floorForm" (ngSubmit)="submitFloorForm()" class="needs-validation" novalidate>
+          <input type="hidden" formControlName="id" name="id" class="form-control" />
+          <input type="hidden" formControlName="hostelId" name="hostelId" class="form-control" />
+          <div class="row">
+            <div class="col-lg-4">
+              <label class="col-form-label">Floor No</label>
+            </div>
+            <div class="col-lg-7">
+              <input
+                formControlName="floorNo"
+                name="floorNo"
+                class="form-control"
+                type="text"
+                [ngClass]="{ 'is-invalid': floorSubmitted && f.floorNo.errors }"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <label class="col-form-label">Status</label>
+            </div>
+            <div class="col-lg-6">
+              <select formControlName="isActive" name="status" class="form-control">
+                <option value="true">Active</option>
+                <option value="false">Deative</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 text-sm-right">
+              <button type="button" (click)="resetFloorForm()" class="btn btn-warning">
+                <i class="bx bx-revision"></i>&nbsp; <b>Reset</b>
+              </button>
+              <button type="submit" class="btn btn-success">
+                <i class="bx bx-check-double"></i>&nbsp; <b>Save Floor</b>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="row margin-top">
+          <div class="col-lg-12 table-responsive">
+            <table class="table mb-0">
+              <thead>
+                <tr class="thead-light">
+                  <th>FLOOR NO</th>
+                  <th>STATUS</th>
+                  <th class="text-center">ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let floor of filteredFloors">
+                  <td>{{ floor.floorNo }}</td>
+                  <td>
+                    <span class="badge badge-pill" [ngClass]="floor.isActive ? 'badge-success' : 'badge-danger'">
+                      {{ floor.isActive ? 'Active' : 'Deactive' }}
+                    </span>
+                  </td>
+                  <td style="text-align: center">
+                    <a href="javascript:void(0);" (click)="updateFloorForm(floor.id)" class="action-icon text-success">
+                      <i class="far fa-edit font-size-14"></i
+                    ></a>
+                    <a href="javascript:void(0);" (click)="deleteFloorForm(floor.id)" class="action-icon text-danger">
+                      <i class="bx bxs-trash font-size-14"></i
+                    ></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+<!-- Room Creation -->
+<div
+  class="modal fade exampleModal"
+  tabindex="-1"
+  id="roomCreation"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  data-backdrop="static"
+  aria-hidden="true"
+>
+  <div style="max-width: 400px !important" class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Room Creation Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-secondary status-padding">
+          <div class="row">
+            <div class="col-lg-12">
+              <button class="btn btn-sm btn-info waves-effect waves-light mr-2">
+                <b>{{ selectedHostel?.name }}</b> <i class="fas fa-angle-double-right"></i>
+              </button>
+              <button class="btn btn-sm btn-info waves-effect waves-light">
+                <b>{{ selectedFloor?.floorNo }}</b> <i class="fas fa-angle-double-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <form [formGroup]="roomForm" (ngSubmit)="submitRoomForm()" class="needs-validation" novalidate>
+          <input type="hidden" formControlName="id" name="id" class="form-control" />
+          <input type="hidden" formControlName="floorId" name="floorId" class="form-control" />
+          <div class="row">
+            <div class="col-lg-4">
+              <label class="col-form-label">Room No</label>
+            </div>
+            <div class="col-lg-7">
+              <input
+                formControlName="roomNo"
+                name="roomNo"
+                class="form-control"
+                type="text"
+                [ngClass]="{ 'is-invalid': roomSubmitted && r.roomNo.errors }"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <label class="col-form-label">Capicity</label>
+            </div>
+            <div class="col-lg-4">
+              <input
+                formControlName="capacity"
+                name="capacity"
+                class="form-control"
+                type="text"
+                [ngClass]="{ 'is-invalid': roomSubmitted && r.capacity.errors }"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <label class="col-form-label">Room Type</label>
+            </div>
+            <div class="col-lg-4">
+              <select formControlName="roomTypeId" name="roomTypeId" class="form-control">
+                <option *ngFor="let roomType of roomTypes" value="{{ roomType.id }}">
+                  {{ roomType.type }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <label class="col-form-label">Status</label>
+            </div>
+            <div class="col-lg-4">
+              <select formControlName="isActive" name="status" class="form-control">
+                <option value="true">Active</option>
+                <option value="false">Deative</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 text-sm-right">
+              <button type="button" (click)="resetRoomForm()" class="btn btn-warning">
+                <i class="bx bx-revision"></i>&nbsp; <b>Reset</b>
+              </button>
+              <button type="submit" class="btn btn-success">
+                <i class="bx bx-check-double"></i>&nbsp; <b>Save Room</b>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="row margin-top">
+          <div class="col-lg-12 table-responsive">
+            <table class="table mb-0">
+              <thead>
+                <tr class="thead-light">
+                  <th>ROOM NO</th>
+                  <th>CAPICITY</th>
+                  <th>TYPE</th>
+                  <th>STATUS</th>
+                  <th class="text-center">ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let room of filteredRooms">
+                  <td>{{ room.roomNo }}</td>
+                  <td>{{ room.capacity }}</td>
+                  <td>{{ room.roomTypeId | roomType: roomTypes }}</td>
+                  <td>
+                    <span class="badge badge-pill" [ngClass]="room.isActive ? 'badge-success' : 'badge-danger'">
+                      {{ room.isActive ? 'Active' : 'Deactive' }}
+                    </span>
+                  </td>
+                  <td style="text-align: center">
+                    <a href="javascript:void(0);" (click)="updateRoomForm(room.id)" class="action-icon text-success">
+                      <i class="far fa-edit font-size-14"></i
+                    ></a>
+                    <a href="javascript:void(0);" (click)="deleteRoomForm(room.id)" class="action-icon text-danger">
+                      <i class="bx bxs-trash font-size-14"></i
+                    ></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
+<!-- Infra Creation -->
+<div
+  class="modal fade exampleModal"
+  tabindex="-1"
+  id="infraCreation"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  data-backdrop="static"
+  aria-hidden="true"
+>
+  <div style="max-width: 500px !important" class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bed Creation Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-secondary status-padding">
+          <div class="row">
+            <div class="col-lg-12">
+              <button class="btn btn-sm btn-info waves-effect waves-light mr-2">
+                <b>{{ selectedHostel?.name }}</b> <i class="fas fa-angle-double-right"></i>
+              </button>
+              <button class="btn btn-sm btn-info waves-effect waves-light mr-2">
+                <b>{{ selectedFloor?.floorNo }}</b> <i class="fas fa-angle-double-right"></i>
+              </button>
+              <button class="btn btn-sm btn-info waves-effect waves-light">
+                <b>{{ selectedRoom?.roomNo }}</b> <i class="fas fa-angle-double-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <form [formGroup]="bedForm" (ngSubmit)="submitBedForm()" class="needs-validation" novalidate>
+          <input type="hidden" formControlName="id" name="id" class="form-control" />
+          <input type="hidden" formControlName="roomId" name="roomId" class="form-control" />
+          <div class="row">
+            <div class="col-lg-3">
+              <label class="col-form-label">Bed No</label>
+            </div>
+            <div class="col-lg-4">
+              <input
+                formControlName="bedNo"
+                name="bedNo"
+                class="form-control"
+                type="text"
+                [ngClass]="{ 'is-invalid': bedSubmitted && b.bedNo.errors }"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3">
+              <label class="col-form-label">Description</label>
+            </div>
+            <div class="col-lg-8">
+              <textarea
+                formControlName="description"
+                name="description"
+                class="form-control"
+                type="text"
+                [ngClass]="{ 'is-invalid': bedSubmitted && b.description.errors }"
+                style="height: 50px !important"
+              ></textarea>
+            </div>
+          </div>
+          <div class="row margin-top">
+            <div class="col-lg-3">
+              <label class="col-form-label">Status</label>
+            </div>
+            <div class="col-lg-4">
+              <select formControlName="isActive" name="status" class="form-control">
+                <option value="true">Active</option>
+                <option value="false">Deactive</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12 text-sm-right">
+              <button type="button" (click)="resetBedForm()" class="btn btn-warning">
+                <i class="bx bx-revision"></i>&nbsp; <b>Reset</b>
+              </button>
+              <button type="submit" class="btn btn-success">
+                <i class="bx bx-check-double"></i>&nbsp; <b>Save Bed</b>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="row margin-top">
+          <div class="col-lg-12 table-responsive">
+            <table class="table mb-0">
+              <thead>
+                <tr class="thead-light">
+                  <th>BED NO</th>
+                  <th>DESCRIPTION</th>
+                  <th class="text-center">STATUS</th>
+                  <th class="text-center">ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bed of filteredBeds">
+                  <td>{{ bed.bedNo }}</td>
+                  <td>{{ !!bed.description ? bed.description : 'N/A' }}</td>
+                  <td class="text-center">
+                    <span class="badge badge-pill badge-success">Active</span>
+                  </td>
+                  <td style="text-align: center">
+                    <a href="javascript:void(0);" (click)="updateBedForm(bed.id)" class="action-icon text-success">
+                      <i class="far fa-edit font-size-14"></i
+                    ></a>
+                    <a href="javascript:void(0);" (click)="deleteBedForm(bed.id)" class="action-icon text-danger">
+                      <i class="bx bxs-trash font-size-14"></i
+                    ></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->

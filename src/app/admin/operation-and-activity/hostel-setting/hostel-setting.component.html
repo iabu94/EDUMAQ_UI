@@ -1,0 +1,400 @@
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-lg-12 page-col-nopadding">
+                <div class="card page-header-title card-title text-uppercase">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4"><span class="pagetitle"><i class="bx bx-cog   text-success font-size-18"></i>&nbsp; Hostel  Settings</span></div>
+
+                            <div class="col-lg-8  ">
+                                <div style="float:right !important">
+                                    <button class="btn w-sm btn-success btn-top-action">
+                                        <i class="bx bx-check-double align-middle mr-1"></i><b>Save Setting</b>
+                                    </button>
+                                    <button class="btn  btn-danger btn-top-action " data-target="#passCode" data-toggle="modal">
+                                        <i class="far fa-edit font-size-14"></i>
+                                    </button>
+                                    <button class="btn btn-secondary dropdown-toggle btn-option" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" style="position: absolute; transform: translate3d(-1px, 37px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-end">
+                                        <a class="dropdown-item" href="#" data-target="#addLeave" data-toggle="modal">Create New Leave</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12 page-col-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row    ">
+                            <div class="col-lg-8">
+                                <h5 class="card-title"><i class="fas fa-filter  text-success"> </i> LATE FINE RULES</h5>
+                            </div>
+                        </div>
+
+                        <div class="row margin-top">
+
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">CONDITIONS</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <select class="form-control" id="ddlConditions">
+                                            <option>One Time</option>
+                                            <option>Repeat (with max fine)</option>
+                                            <option>Repeat (without max fine)</option>
+                                            <option>Repeat With Conditions(with max fine)</option>
+                                            <option>Repeat With Conditions(without max fine)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3" id="divFineRule">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">FINE RULE</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <select class="form-control">
+                                            <option>Per Day</option>
+                                            <option>Per Month</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2" id="divFineAmount">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">FINE AMOUNT</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2" id="divMaxFine">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <label class="col-form-label">MAX FINE</label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row margin-top" id="divRepeatFineRulesHead">
+                            <h5 class="m-2"> <i class="fas fa-undo  text-danger"></i> REPEAT FINE RULES</h5>
+                        </div>
+
+                        <div class="row " id="divRepeatFineRules">
+                            <div class="col-lg-3">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">CONDITIONS</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <select class="form-control">
+                                            <option>One Time</option>
+                                            <option>Repeat</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">FINE RULE</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <select class="form-control">
+                                            <option>Per Day</option>
+                                            <option>Per Month</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">WITH AMOUNT</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row margin-top ">
+                            <div class="col-lg-8">
+                                <h5 class="card-title"><i class="fas fa-filter  text-success"> </i> COMMUNICATION</h5>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="row">
+                                    <div class="col-lg-3 " style="margin-top:6px">
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck7">
+                                            <label class="custom-control-label" for="customCheck7"> Before </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="col-form-label" style="margin-left:-20px;margin-top:-5px">Days</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="time" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <label class="col-form-label">Message Template </label>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <select class="form-control">
+                                            <option>Template 1</option>
+                                            <option>Template 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="row">
+                                    <div class="col-lg-3 " style="margin-top:6px">
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck7">
+                                            <label class="custom-control-label" for="customCheck7"> On Date </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <input type="time" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <label class="col-form-label">Message Template </label>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <select class="form-control">
+                                            <option>Template 1</option>
+                                            <option>Template 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="row">
+                                    <div class="col-lg-3 " style="margin-top:6px">
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck7">
+                                            <label class="custom-control-label" for="customCheck7"> After </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="col-form-label" style="margin-left:-20px;margin-top:-5px">Days</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="time" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <label class="col-form-label">Message Template </label>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <select class="form-control">
+                                            <option>Template 1</option>
+                                            <option>Template 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row  margin-top  ">
+                            <div class="col-lg-8">
+                                <h5 class="card-title"><i class="fas fa-filter  text-success"> </i> FEE COLLECTION SETTINGS</h5>
+                            </div>
+
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col-lg-4">
+                                <div class="custom-control custom-radio mb-2">
+                                    <input type="radio" id="rdoFeeCollection" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="rdoFeeCollection">Collect Fee From Fee Collection</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="custom-control custom-radio mb-2">
+                                    <input type="radio" id="rdoNewTab" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="rdoNewTab">Collect From Separate Tab</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="newTab">
+                            <div class="row">
+                                <div class="col-lg-1">
+                                    <div class="row">
+                                        <div class="col-lg-12"><label class="col-form-label">Ins No</label></div>
+                                        <div class="col-lg-12"><input type="text" class="form-control" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="row">
+                                        <div class="col-lg-12"><label class="col-form-label">Installment Name</label></div>
+                                        <div class="col-lg-12"><input type="text" class="form-control" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="row">
+                                        <div class="col-lg-12"><label class="col-form-label">Start Date</label></div>
+                                        <div class="col-lg-12"><input type="text" class="form-control margin-top-searchBar" placeholder="dd-mm-yyyy" data-provide="datepicker" data-date-autoclose="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="row">
+                                        <div class="col-lg-12"><label class="col-form-label">End Date</label></div>
+                                        <div class="col-lg-12"><input type="text" class="form-control margin-top-searchBar" placeholder="dd-mm-yyyy" data-provide="datepicker" data-date-autoclose="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="row">
+                                        <div class="col-lg-12"><label class="col-form-label">Payment Date</label></div>
+                                        <div class="col-lg-12"><input type="text" class="form-control margin-top-searchBar" placeholder="dd-mm-yyyy" data-provide="datepicker" data-date-autoclose="true"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="row">
+                                        <div class="col-lg-12"><label class="col-form-label">Last Pay Date</label></div>
+                                        <div class="col-lg-12"><input type="text" class="form-control margin-top-searchBar" placeholder="dd-mm-yyyy" data-provide="datepicker" data-date-autoclose="true"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3"><label class="col-form-label">Description</label></div>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" style="height:40px !important"></textarea>
+                                </div>
+                            </div>
+                            <div class="row  margin-top">
+                                <div class="col-lg-12 text-sm-right">
+                                    <button class="btn w-sm  btn-warning waves-effect waves-light">
+                                        <i class="bx bx-revision  align-middle mr-1 font-size-18"></i><b>Reset</b>
+                                    </button>
+                                    <button class="btn w-sm btn-success waves-effect waves-light">
+                                        <i class="bx bx-check-double    align-middle mr-1 font-size-18"></i><b>Save</b>
+                                    </button>
+
+                                </div>
+                            </div>
+                            <div class="row margin-top">
+                                <div class="col-lg-12 table-responsive">
+                                    <table class="table   mb-0 ">
+                                        <thead>
+                                            <tr class="thead-light">
+                                                <th style="width:5%">INS NO</th>
+                                                <th style="width:15%">INSTALLMENT NAME</th>
+                                                <th style="width:10%">START DATE</th>
+                                                <th style="width:10%">END DATE</th>
+                                                <th style="width:10%">PAYMENT DATE</th>
+                                                <th style="width:10%">LAST PAY DATE</th>
+                                                <th style="width:15%">DESCRIPTION</th>
+                                                <th style="width:10%" class="text-center">STATUS</th>
+                                                <th style="width:10%" class="text-center">ACTIONS</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>01</td>
+                                                <td>April 2020-21</td>
+                                                <td>01-04-2020</td>
+                                                <td>
+                                                    31-04-2020
+                                                </td>
+                                                <td>01-04-2020</td>
+                                                <td>31-04-2020</td>
+                                                <td>NA</td>
+                                                <td class="text-center"><span class="badge badge-pill badge-success">Active</span></td>
+                                                <td style="text-align:center">
+                                                    <a href="javascript:void(0);" class="action-icon text-success"> <i class="far fa-edit  font-size-14"></i></a>
+                                                    <a href="javascript:void(0);" class="action-icon text-danger"> <i class=" bx bxs-trash font-size-14"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>02</td>
+                                                <td>May 2020-21</td>
+                                                <td>01-05-2020</td>
+                                                <td>31-05-2020</td>
+                                                <td>01-04-2020</td>
+                                                <td>31-04-2020</td>
+                                                <td>NA</td>
+                                                <td class="text-center"><span class="badge badge-pill badge-success">Active</span></td>
+                                                <td style="text-align:center">
+                                                    <a href="javascript:void(0);" class="action-icon text-success"> <i class="far fa-edit  font-size-14"></i></a>
+                                                    <a href="javascript:void(0);" class="action-icon text-danger"> <i class=" bx bxs-trash font-size-14"></i></a>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <!-- container-fluid -->
+</div>

@@ -1,0 +1,196 @@
+<div class="page-content">
+  <div class="container-fluid">
+    <!-- start page title -->
+    <div class="row">
+      <div class="col-lg-12 page-col-nopadding">
+        <div class="card page-header-title card-title text-uppercase">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-4">
+                <span class="pagetitle"
+                  ><i class="fas fa-rupee-sign text-success font-size-18"></i>&nbsp; Bed Fare</span
+                >
+              </div>
+              <div class="col-lg-8">
+                <div style="float: right !important">
+                  <button
+                    class="btn btn-secondary dropdown-toggle btn-option"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                  >
+                    MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                  </button>
+                  <div
+                    class="dropdown-menu dropdown-menu-right"
+                    style="
+                      position: absolute;
+                      transform: translate3d(-1px, 37px, 0px);
+                      top: 0px;
+                      left: 0px;
+                      will-change: transform;
+                    "
+                    x-placement="bottom-end"
+                  >
+                    <a class="dropdown-item" href="#" data-target="#addLeave" data-toggle="modal"
+                      >Create New Leave</a
+                    >
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-left-nopadding">
+        <form [formGroup]="form" (ngSubmit)="submitForm()" class="needs-validation" novalidate>
+            <input type="hidden" formControlName="id" name="id" class="form-control" />
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Hostel</label>
+                </div>
+                <div class="col-lg-6">
+                  <select
+                    formControlName="hostelId"
+                    name="hostelId"
+                    class="form-control"
+                  >
+                    <option *ngFor="let hostel of hostels" value="{{ hostel.id }}">{{ hostel.name }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Room Type</label>
+                </div>
+                <div class="col-lg-6">
+                  <select
+                    formControlName="roomTypeId"
+                    name="roomTypeId"
+                    class="form-control"
+                  >
+                    <option *ngFor="let roomType of roomTypes" value="{{ roomType.id }}">{{ roomType.type }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Fare/Bed</label>
+                </div>
+                <div class="col-lg-4">
+                  <input formControlName="fare" name="fare" type="text" class="form-control" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Status</label>
+                </div>
+                <div class="col-lg-5">
+                  <select formControlName="isActive" name="isActive" class="form-control">
+                    <option value="true">Active</option>
+                    <option value="false">Deactive</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row margin-top">
+                <div class="col-lg-12 text-sm-right">
+                  <button
+                    type="button"
+                    (click)="resetForm()"
+                    class="btn btn-warning waves-effect waves-light"
+                  >
+                    <i class="bx bx-revision align-middle mr-2"></i>Reset
+                  </button>
+                  <button type="submit" class="btn btn-success waves-effect waves-light">
+                    <i class="bx bx-check-double align-middle mr-2"></i> Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-8 page-col-nopadding">
+        <div class="card">
+          <div class="card-body">
+            <div class="alert alert-secondary status-padding">
+              <div class="row">
+                <div class="col-lg-8">
+                  <button class="btn btn-info btn-sm">{{ totalRows }}</button>
+                </div>
+
+                <div class="col-lg-4">
+                  <input
+                    (keyup)="onKeyUpEvent($event)"
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12 table-responsive">
+                <table class="table table-striped mb-0">
+                  <thead>
+                    <tr class="thead-light">
+                      <th>SNO</th>
+                      <th>HOSTEL TYPE</th>
+                      <th>ROOM TYPE</th>
+                      <th>BED CHARGE</th>
+                      <th class="text-center">STATUS</th>
+                      <th class="text-center">ACTIONS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let bedFare of filteredBedFares; let i = index">
+                      <td>{{ i + 1 }}</td>
+                      <td>{{ bedFare.hostelId | hostelName : hostels }}</td>
+                      <td>{{ bedFare.roomTypeId | roomType : roomTypes }}</td>
+                      <td>{{ bedFare?.fare }}</td>
+                      <td class="text-center">
+                        <span
+                          class="badge badge-pill"
+                          [ngClass]="bedFare?.isActive ? 'badge-success' : 'badge-danger'"
+                        >
+                          {{ bedFare?.isActive ? 'Active' : 'Deactive' }}
+                        </span>
+                      </td>
+                      <td style="text-align: center">
+                        <a
+                          href="javascript:void(0);"
+                          (click)="updateForm(bedFare.id)"
+                          class="action-icon text-success"
+                        >
+                          <i class="far fa-edit font-size-16"></i
+                        ></a>
+                        <a
+                          href="javascript:void(0);"
+                          (click)="deleteForm(bedFare.id)"
+                          class="action-icon text-danger"
+                        >
+                          <i class="bx bxs-trash font-size-16"></i
+                        ></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- container-fluid -->
+</div>

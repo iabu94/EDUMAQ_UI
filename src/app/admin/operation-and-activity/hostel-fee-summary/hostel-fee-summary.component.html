@@ -1,0 +1,233 @@
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-lg-12 page-col-nopadding">
+                <div class="card page-header-title card-title text-uppercase">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4"><span class="pagetitle"><i
+                                        class="fas fa-list   text-success font-size-18"></i>&nbsp; Hostel Fee
+                                    Summary</span></div>
+                            <div class="col-lg-8  ">
+                                <div style="float:right !important">
+                                    <button class="btn btn-secondary dropdown-toggle btn-option" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="true">
+                                        MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right"
+                                        style="position: absolute; transform: translate3d(-1px, 37px, 0px); top: 0px; left: 0px; will-change: transform;"
+                                        x-placement="bottom-end">
+                                        <a class="dropdown-item" href="#" data-target="#addLeave"
+                                            data-toggle="modal">Create New Leave</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-left-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <select class="form-control select2">
+                                    <option>1029 Ram Kumar</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row  " style="margin-top:25px">
+                            <div class="col-lg-12">
+                                <h5 class="card-title"><i class="fas fa-filter "> </i> OR SEARCH BY DETAILS</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">Class</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <select class="form-control">
+                                            <option>All Class</option>
+                                            <option>Student</option>
+                                            <option>Employe</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">Batch</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <select class="form-control">
+                                            <option>All Batch</option>
+                                            <option>A</option>
+                                            <option>B</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:25px">
+                            <div class="col-lg-12">
+                                <label class="col-form-label">From Date</label>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control margin-top-searchBar" placeholder="dd-mm-yyyy"
+                                    data-provide="datepicker" data-date-autoclose="true">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label class="col-form-label">To Date</label>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control margin-top-searchBar" placeholder="dd-mm-yyyy"
+                                    data-provide="datepicker" data-date-autoclose="true">
+                            </div>
+                        </div>
+                        <div class="row  margin-top">
+                            <div class="col-lg-12 text-sm-right">
+                                <button class="btn    btn-warning waves-effect waves-light">
+                                    <i class="bx bx-revision  align-middle mr-1 font-size-18"></i><b>Reset</b>
+                                </button>
+                                <button class="btn  btn-success waves-effect waves-light">
+                                    <i class="bx bx-search-alt   align-middle mr-1 font-size-18"></i><b>Search</b>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row  margin-top">
+                            <div class="col-lg-12  ">
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <td>TOTAL PAYABLE</td>
+                                        <td>:</td>
+                                        <td class="text-center"><span
+                                                class="badge badge-pill badge-warning font-size-12"><b><i
+                                                        class=" fas fa-rupee-sign "></i> 5000.00</b></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>TOTAL COLLETED</td>
+                                        <td>:</td>
+                                        <td class="text-center"><span
+                                                class="badge badge-pill badge-success font-size-12"><b><i
+                                                        class=" fas fa-rupee-sign "></i> 4000.00</b></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>TOTAL DUE</td>
+                                        <td>:</td>
+                                        <td class="text-center"><span
+                                                class="badge badge-pill badge-danger font-size-12"><b> <i
+                                                        class=" fas fa-rupee-sign "></i> 1000.00</b></span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 page-col-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="alert alert-secondary status-padding">
+                            <div class="row">
+                                <div class="col-lg-6" style="margin-top:6px">
+                                    <h5><i class="fas fa-users   text-success tbn-search"> </i> DUE SUMMARY</h5>
+                                </div>
+                                <div class="col-lg-6 text-sm-right" style="margin-top:3px">
+                                    <span class="badge badge-info font-size-16">TOTAL DUE (<i
+                                            class=" fas fa-rupee-sign text-danger "> </i>) &nbsp; 5000.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 " style="max-height:400px;overflow-x:auto">
+                                <table class="table">
+                                    <tr class="thead-light">
+                                        <th>STUDTENT NAME</th>
+                                        <th>CLASS</th>
+                                        <th>BATCH</th>
+                                        <th>ROLL</th>
+                                        <th>DUE DATE</th>
+                                        <th>AMOUNT</th>
+                                        <th>FINE</th>
+                                        <th>TOTAL</th>
+                                        <th class="text-center">ACTION</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Ayushi Kumari</td>
+                                        <td>Class-X</td>
+                                        <td>A</td>
+                                        <td>10</td>
+                                        <td>10-04-2020</td>
+                                        <td>100.00</td>
+                                        <td>50.00</td>
+                                        <td>150.00</td>
+                                        <td class="text-center">
+                                            <a href="#" data-toggle="modal" data-target="#feeDetails"
+                                                title=" Details"><i class="bx bx-detail font-size-20 text-info"></i></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="alert alert-secondary status-padding margin-top">
+                            <div class="row">
+                                <div class="col-lg-6" style="margin-top:6px">
+                                    <h5><i class="fas fa-users   text-success tbn-search"> </i> PAID HISTORY</h5>
+                                </div>
+                                <div class="col-lg-6 text-sm-right" style="margin-top:3px">
+                                    <span class="badge badge-success font-size-16">TOTAL PAID (<i
+                                            class=" fas fa-rupee-sign text-danger "> </i>) &nbsp; 200.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 " style="max-height:400px;overflow-x:auto">
+                                <table class="table">
+                                    <tr class="thead-light">
+                                        <th>STUDTENT NAME</th>
+                                        <th>CLASS</th>
+                                        <th>BATCH</th>
+                                        <th>ROLL</th>
+                                        <th>DUE DATE</th>
+                                        <th>PAID DATE</th>
+                                        <th>AMOUNT</th>
+                                        <th>FINE</th>
+                                        <th>TOTAL</th>
+                                        <th class="text-center">ACTION</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Ayushi Kumari</td>
+                                        <td>Class-X</td>
+                                        <td>A</td>
+                                        <td>10</td>
+                                        <td>10-02-2020</td>
+                                        <td>10-02-2020</td>
+                                        <td>500.00</td>
+                                        <td>50.00</td>
+                                        <td>550.00</td>
+                                        <td class="text-center">
+                                            <a href="#" data-toggle="modal" data-target="#feeDetails"
+                                                title=" Details"><i class="bx bx-detail font-size-20 text-info"></i></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+</div>

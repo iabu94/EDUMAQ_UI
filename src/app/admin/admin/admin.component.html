@@ -1,0 +1,683 @@
+<div id="layout-wrapper">
+    <header id="page-topbar">
+        <div class="navbar-header">
+            <div class="d-flex">
+                <!-- LOGO -->
+                <div class="navbar-brand-box">
+                    <a href="index.html" class="logo logo-dark">
+                        <span class="logo-sm">
+                            <img src="../../../images/logo.svg" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="../../../assets/images/logo-dark.png" alt="" height="17">
+                        </span>
+                    </a>
+                    <a href="index.html" class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="../../../assets/images/Logo-02.png" alt="logo" style="height: 50px;margin-left: -24px">
+                        </span>
+                        <span class="logo-lg">
+                            <img style="height: 65px;margin-left: -35px;width: 200px;" src="../../../assets/images/edumaq.png" alt="" height="19">
+                        </span>
+                    </a>
+                </div>
+                <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                    <i class="fa fa-fw fa-bars"></i>
+                </button>
+                <!-- App Search-->
+                <form class="app-search d-none d-lg-block">
+                    <div class="position-relative">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="bx bx-search-alt"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="d-flex">
+                <div class="dropdown d-inline-block d-lg-none ml-2">
+                    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="mdi mdi-magnify"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+                         aria-labelledby="page-header-search-dropdown">
+
+                        <form class="p-3">
+                            <div class="form-group m-0">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item waves-effect"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="" src="../../../assets/images/flags/us.jpg" alt="Header Language" height="16">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <img src="../../../assets/images/flags/spain.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Spanish</span>
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <img src="../../../assets/images/flags/germany.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">German</span>
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <img src="../../../assets/images/flags/italy.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Italian</span>
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <img src="../../../assets/images/flags/russia.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Russian</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="dropdown d-none d-lg-inline-block ml-1">
+                    <button type="button" class="btn header-item noti-icon waves-effect"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-customize"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <div class="px-lg-2">
+                            <div class="row no-gutters">
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="../../../assets/images/brands/github.png" alt="Github">
+                                        <span>GitHub</span>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="../../../assets/images/brands/bitbucket.png" alt="bitbucket">
+                                        <span>Bitbucket</span>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="../../../assets/images/brands/dribbble.png" alt="dribbble">
+                                        <span>Dribbble</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row no-gutters">
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="../../../assets/images/brands/dropbox.png" alt="dropbox">
+                                        <span>Dropbox</span>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="../../../assets/images/brands/mail_chimp.png" alt="mail_chimp">
+                                        <span>Mail Chimp</span>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="#">
+                                        <img src="../../../assets/images/brands/slack.png" alt="slack">
+                                        <span>Slack</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown d-none d-lg-inline-block ml-1">
+                    <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                        <i class="bx bx-fullscreen"></i>
+                    </button>
+                </div>
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-bell bx-tada"></i>
+                        <span class="badge badge-danger badge-pill">3</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+                         aria-labelledby="page-header-notifications-dropdown">
+                        <div class="p-3">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="m-0"> Notifications </h6>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#!" class="small"> View All</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-simplebar style="max-height: 230px;">
+                            <a href="#" class="text-reset notification-item">
+                                <div class="media">
+                                    <div class="avatar-xs mr-3">
+                                        <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                            <i class="bx bx-cart"></i>
+                                        </span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="mt-0 mb-1">Your order is placed</h6>
+                                        <div class="font-size-12 text-muted">
+                                            <p class="mb-1">If several languages coalesce the grammar</p>
+                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="text-reset notification-item">
+                                <div class="media">
+                                    <img src="../../../assets/images/users/avatar-3.jpg"
+                                         class="mr-3 rounded-circle avatar-xs" alt="user-pic">
+                                    <div class="media-body">
+                                        <h6 class="mt-0 mb-1">James Lemire</h6>
+                                        <div class="font-size-12 text-muted">
+                                            <p class="mb-1">It will seem like simplified English.</p>
+                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="text-reset notification-item">
+                                <div class="media">
+                                    <div class="avatar-xs mr-3">
+                                        <span class="avatar-title bg-success rounded-circle font-size-16">
+                                            <i class="bx bx-badge-check"></i>
+                                        </span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="mt-0 mb-1">Your item is shipped</h6>
+                                        <div class="font-size-12 text-muted">
+                                            <p class="mb-1">If several languages coalesce the grammar</p>
+                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="text-reset notification-item">
+                                <div class="media">
+                                    <img src="../../../assets/images/users/avatar-4.jpg"
+                                         class="mr-3 rounded-circle avatar-xs" alt="user-pic">
+                                    <div class="media-body">
+                                        <h6 class="mt-0 mb-1">Salena Layfield</h6>
+                                        <div class="font-size-12 text-muted">
+                                            <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
+                                            <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="p-2 border-top">
+                            <a class="btn btn-sm btn-link font-size-14 btn-block text-center" href="javascript:void(0)">
+                                <i class="mdi mdi-arrow-right-circle mr-1"></i> View More..
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle header-profile-user" src="../../../assets/images/users/avatar-1.jpg" alt="Header Avatar">
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a class="dropdown-item text-success" href="#"><i class="bx bx-user font-size-16 align-middle mr-1"></i> CHANDANI KUMARI</a>
+                        <!--<a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle mr-1"></i> My Wallet</a>-->
+                        <a class="dropdown-item d-block" href="#"><i class="bx bx-wrench font-size-16 align-middle mr-1"></i> Profile Settings</a>
+                        <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle mr-1"></i> Lock screen</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#"><i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout</a>
+                    </div>
+                </div>
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                        <i class=" mdi mdi-folder-clock-outline"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="vertical-menu">
+        <div data-simplebar class="h-100">
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <!-- Left Menu Start -->
+                <ul class="metismenu list-unstyled" id="side-menu">
+                    <li class="menu-title text-white">2020-2021 | ENGLISH | Banglore</li>
+                    <li>
+                        <a href="index.html" class="waves-effect">
+                            <img style="height:25px;" src="../../../assets/images/menuicons/dashboard.png" />
+                            <span class="badge badge-pill badge-info float-right">3</span>
+                            <span> MY DASHBOARD</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/Frontoffices.png" />
+                            <span> Front Office</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow"><i class=" fas fa-user-check "></i> Visitor Enquiry</a>
+                                    <ul class="sub-menu" aria-expanded="true">
+                                        <li><a [routerLink]="['frontoffice/enquiry']" [routerLinkActive]="'active'"><i class=" fas fa-user-check "></i> Enquiry</a></li>
+                                        <li><a [routerLink]="['frontoffice/enquiryfollowup']" [routerLinkActive]="'active'"><i class=" fas fa-user-check "></i>Enquiry Followup</a></li>
+                                        <li><a [routerLink]="['frontoffice/enquiryreport']" [routerLinkActive]="'active'"><i class=" fas fa-user-check "></i>Enquiry Report</a></li>
+                                    </ul>
+                                </li>
+                            <li><a href="#"><i class="bx bx-id-card"></i> Visitor Gate Pass</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/Academics.png" /><span> Academics</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="true">
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="bx bx-detail"></i> Applicant Registration</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['academic/admissionprocedure']" [routerLinkActive]="'active'"><i class="bx bx-detail"></i>
+                                            Admission Procedure</a></li>
+                                    <li><a [routerLink]="['academic/registration']" [routerLinkActive]="'active'"><i class="bx bx-detail"></i>
+                                            Applicant Registration</a></li>
+                                    <li><a [routerLink]="['academic/registrationreport']" [routerLinkActive]="'active'"><i class="bx bx-detail"></i>
+                                            Registration Report</a></li>
+                                    <li><a [routerLink]="['academic/registrationfollowup']" [routerLinkActive]="'active'"><i
+                                                class="bx bx-detail"></i> Applicant Followup</a></li>
+                                    <li><a [routerLink]="['academic/setentrancedate']" [routerLinkActive]="'active'"><i class="bx bx-detail"></i>
+                                        Set Entrance Date</a></li>
+                                    <li><a [routerLink]="['academic/entrancesummary']" [routerLinkActive]="'active'"><i class="bx bx-detail"></i>
+                                        Entrance Summary</a></li>
+                                    <li><a [routerLink]="['academic/entranceresult']" [routerLinkActive]="'active'"><i class="bx bx-detail"></i>
+                                        Entrance Result</a></li>
+                                    <li><a [routerLink]="['academic/regfeereport']" [routerLinkActive]="'active'"><i class="bx bx-detail"></i>
+                                        Reg Fee Collection Report</a></li>    
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="bx bx-building-house"></i> Class Management</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="javascript: void(0);"><i class=" fas fa-plus-square "></i> Create Class</a></li>
+                                    <li><a [routerLink]="['academic/class/assignrollno']" [routerLinkActive]="'active'"><i class=" fas fa-list-ol "></i> Assign Roll No</a></li>
+                                    <li><a href="javascript: void(0);"><i class=" fas fa-chalkboard-teacher  "></i> Assign Teacher</a></li>
+                                    <li><a [routerLink]="['academic/class/batchsummary']" [routerLinkActive]="'active'"><i class=" fas fa-chalkboard-teacher  "></i> Batch Summary</a></li>
+                                    <li><a [routerLink]="['academic/class/classsummary']" [routerLinkActive]="'active'"><i class=" fas fa-chalkboard-teacher  "></i> Class Summary</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="bx bx-duplicate"></i> Study Plans</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['academic/studyplan/classwork']" [routerLinkActive]="'active'"><i class="  fas fa-pen "></i> Class Work</a></li>
+                                    <li><a [routerLink]="['academic/studyplan/homework']" [routerLinkActive]="'active'"><i class=" bx bx-notepad  "></i> Homework</a></li>
+                                    <li><a [routerLink]="['academic/studyplan/assignment']" [routerLinkActive]="'active'"><i class=" dripicons-list "></i> Assignmnt</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><i class="bx bx-spreadsheet"></i> Lesson Plan</a></li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-calendar-alt "></i> Timetable Management</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['academic/timetable/period']" [routerLinkActive]="'active'"><i class="fas fa-th "></i> Period</a></li>
+                                    <li><a [routerLink]="['academic/timetable/weekday']" [routerLinkActive]="'active'"><i class="fas fa-table "></i> Weekday</a></li>
+                                    <li><a [routerLink]="['academic/timetable/timetable']" [routerLinkActive]="'active'"><i class="fas fa-tasks   "></i> Time Table</a></li>
+                                    <li><a [routerLink]="['academic/timetable/report']" [routerLinkActive]="'active'"><i class="fas fa-tasks   "></i> Report</a></li>
+                                </ul>
+                            </li>
+                            <li><a [routerLink]="['academic/syllabus']" [routerLinkActive]="'active'"><i class="bx bx-book"></i> Syllabuss</a></li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class=" fas fa-fingerprint"></i> Attendance</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['academic/attendance/studentattendance']" [routerLinkActive]="'active'"><i class="fas fa-th "></i> Student Attendance</a></li>
+                                    <li><a [routerLink]="['academic/attendance/attendanceregister']" [routerLinkActive]="'active'"><i class="fas fa-th "></i> Attendance Register</a></li>
+                                    <li><a [routerLink]="['academic/attendance/attendancereport']" [routerLinkActive]="'active'"><i class="fas fa-tasks   "></i> Attendance Report</a></li>
+                                    <li><a [routerLink]="['academic/attendance/studentwisereport']" [routerLinkActive]="'active'"><i class="fas fa-table "></i> Student Wise Report</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="bx bxs-notepad"></i> Event Calendar</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['academic/event/eventcalendar']" [routerLinkActive]="'active'"><i class=" bx bxs-notepad"></i> Event Calendar</a></li>
+                                    <li><a [routerLink]="['academic/event/report']" [routerLinkActive]="'active'"><i class=" bx bxs-notepad"></i> Event Report</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li><a href="#"><i class=" bx bxs-user-rectangle"></i> Institution Profile</a></li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class=" fas fa-user-graduate "></i> Student Management</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['academic/student/admission']" [routerLinkActive]="'active'"><i class="fas fa-th "></i> Admission</a></li>
+                                    <li><a [routerLink]="['academic/student/bulkupload']" [routerLinkActive]="'active'"><i class="fas fa-table "></i> Bulk Upload Student</a></li>
+                                    <li><a [routerLink]="['academic/student/bulkimageupload']" [routerLinkActive]="'active'"><i class="fas fa-table "></i> Bulk Upload Image</a></li>
+                                    <li><a [routerLink]="['academic/student/additionalsubject']" [routerLinkActive]="'active'"><i class="fas fa-th "></i> Additional Subject</a></li>
+                                    <li><a [routerLink]="['academic/student/classpromotion']" [routerLinkActive]="'active'"><i class="fas fa-table "></i> Class Promotion</a></li>
+                                    <li><a [routerLink]="['academic/student/changeclass']" [routerLinkActive]="'active'"><i class="fas fa-table "></i> Change Class</a></li>
+                                    <li><a [routerLink]="['academic/student/birthdaylist']" [routerLinkActive]="'active'"><i class="fas fa-table "></i> Birthday List</a></li>
+                                    <li><a [routerLink]="['academic/student/admissionreport']" [routerLinkActive]="'active'"><i class="fas fa-table "></i> Admission Report</a></li>
+                                    <li><a [routerLink]="['academic/student/studentreport']" [routerLinkActive]="'active'"><i class="fas fa-table "></i> Student Report</a></li>
+                                </ul>
+                            </li>
+                            <li><a [routerLink]="['academic/student/studentsummary']" [routerLinkActive]="'active'"><i class="fas fa-users"></i> Student Summary</a></li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-calendar-alt"></i> Leave Management</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['academic/leave/leave']" [routerLinkActive]="'active'"><i class="fas fa-th "></i> Leave</a></li>
+                                    <li><a [routerLink]="['academic/leave/leavereport']" [routerLinkActive]="'active'"><i class="fas fa-tasks   "></i> Leave Report</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-vote-yea"></i> Fee Management</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['academic/feemanagement/feehead']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Fee Head</a></li>
+                                    <li><a [routerLink]="['academic/feemanagement/group']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Group</a></li>
+                                    <li><a [routerLink]="['academic/feemanagement/installment']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Installment</a></li>
+                                    <li><a [routerLink]="['academic/feemanagement/assigninstallment']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Assign Installment</a></li>
+                                    <li><a [routerLink]="['academic/feemanagement/assignspecialfee']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Assign Special Fee</a></li>
+                                    <li><a [routerLink]="['academic/feemanagement/feeconfiguration']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Fee Configuration</a></li>
+                                    <li><a [routerLink]="['academic/feemanagement/feerefund']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Fee Refund</a></li>
+                                    <li><a [routerLink]="['academic/feemanagement/feewaveoff']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Fee WaveOff</a></li>
+                                    <li><a [routerLink]="['academic/feemanagement/feecollection']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Fee Collection</a></li>
+                                    <li><a [routerLink]="['academic/feemanagement/feesetting']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Fee Setting</a></li>
+                                </ul>
+                            </li> -->
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-vote-yea"></i> Exams Management</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                            <i class="fas fa-tasks"></i><span> Exam Setting</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="true">
+                                            <li><a class="sub-sub-sub-menu" href="#"><i class="  fas fa-pen "></i> Set Grading</a></li>
+                                            <li><a class="sub-sub-sub-menu" href="#"><i class=" bx bx-notepad  "></i> Homework</a></li>
+                                            <li><a class="sub-sub-sub-menu" href="#"><i class=" dripicons-list "></i> Assignmnt</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                            <i class="fas fa-laptop"></i><span> Online Examination</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="true">
+                                            <li><a class="sub-sub-sub-menu" href="#"><i class="  fas fa-pen "></i> xxxxxx</a></li>
+                                            <li><a class="sub-sub-sub-menu" href="#"><i class=" bx bx-notepad  "></i> xxxxxx</a></li>
+                                            <li><a class="sub-sub-sub-menu" href="#"><i class=" dripicons-list "></i> xxxxxx</a></li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class=" bx bx-timer"></i> Academics Settings</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['academic/academicsettings/assignsubject']" [routerLinkActive]="'active'"><i class="fas fa-th "></i> Assign Subject Class</a></li>
+                                    <li><a [routerLink]="['academic/academicsettings/gradescale']" [routerLinkActive]="'active'"><i class="fas fa-tasks   "></i> Grade Scale</a></li>
+                                    <li><a [routerLink]="['academic/academicsettings/createsubject']" [routerLinkActive]="'active'"><i class="fas fa-table "></i> Create Subject</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="bx bx-paste"></i> Master Settings</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['academic/mastersettings/academicyear']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Academic Year</a></li>
+                                    <!-- <li><a [routerLink]="['academic/mastersettings/batch']" [routerLinkActive]="'active'"><i class="fas fa-list-ol"></i> Batch</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/campusbuilding']" [routerLinkActive]="'active'"><i class="fas fa-list-ol"></i> Campus Building</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/classcourse']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Class/Course</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/category']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Category</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/caste']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Caste</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/city']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> City</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/country']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Country</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/floor']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Floor</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/nationality']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Nationality</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/paymentmode']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Payment Mode</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/religion']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Religion</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/room']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Room</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/state']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> State</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/stream']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Stream</a></li>
+                                    <li><a [routerLink]="['academic/mastersettings/term']" [routerLinkActive]="'active'"><i class="fas fa-calendar"></i> Term</a></li>
+                                    <li><a href="#"><i class="fas fa-th "></i> Subject</a></li>
+                                    <li><a href="#"><i class="fas fa-tasks   "></i> Subject Group</a></li> -->
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/operationActivities.png" />
+                            <span> Operation & Activity</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="bx bx-building-house"></i> Hostel </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow"><i class="bx bx-building-house"></i> Hostel Master </a>
+                                        <ul>
+                                            <li><a [routerLink]="['operation-and-activity/room-type']" [routerLinkActive]="'active'"><i class=" fas fa-plus-square"></i>Room Type</a></li>
+                                            <li><a [routerLink]="['operation-and-activity/create-hostel']" [routerLinkActive]="'active'"><i class=" fas fa-plus-square"></i> Create Hostel</a></li>
+                                            <li><a [routerLink]="['operation-and-activity/hostel-setup']" [routerLinkActive]="'active'"><i class=" fas fa-plus-square"></i>Hostel Setup</a></li>
+                                            <li><a [routerLink]="['operation-and-activity/hostel-setting']" [routerLinkActive]="'active'"><i class=" fas fa-plus-square"></i>Hostel Setting</a></li>
+                                            <li><a [routerLink]="['operation-and-activity/bed-fare']" [routerLinkActive]="'active'"><i class=" fas fa-plus-square"></i>Bed Fare</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript: void(0);" [routerLink]="['operation-and-activity/manage-warden']" [routerLinkActive]="'active'"><i class="bx bx-building-house"></i>Manage Warden</a>
+                                        <a href="javascript: void(0);" [routerLink]="['operation-and-activity/room-allocation']" [routerLinkActive]="'active'"><i class="bx bx-building-house"></i>Room Allocation</a>
+                                        <a href="javascript: void(0);" [routerLink]="['operation-and-activity/room-deallocation']" [routerLinkActive]="'active'"><i class="bx bx-building-house"></i>Room Deallocation</a>
+                                        <a href="javascript: void(0);" [routerLink]="['operation-and-activity/hostel-attendance']" [routerLinkActive]="'active'"><i class="bx bx-building-house"></i>Hostel Attendance</a>
+                                        <a href="javascript: void(0);" [routerLink]="['operation-and-activity/hostel-fee-summary']" [routerLinkActive]="'active'"><i class="bx bx-building-house"></i>Hostel Fee Summary</a>
+                                        <a href="javascript: void(0);" [routerLink]="['operation-and-activity/hostel-penalties']" [routerLinkActive]="'active'"><i class="bx bx-building-house"></i>Hostel Penalty</a>
+                                        <a href="javascript: void(0);" [routerLink]="['operation-and-activity/hostel-summary']" [routerLinkActive]="'active'"><i class="bx bx-building-house"></i>Hostel Summary</a>
+                                        <a href="javascript: void(0);" [routerLink]="['operation-and-activity/student-wise-hostel-report']" [routerLinkActive]="'active'"><i class="bx bx-building-house"></i>Student Wise Hostel Report</a>
+                                        <a href="javascript: void(0);" [routerLink]="['operation-and-activity/employee-wise-hostel-report']" [routerLinkActive]="'active'"><i class="bx bx-building-house"></i>Employee Wise Hostel Report</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/finances.png" />
+                            <span> Finance & Accounting</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/Administration.png" />
+                            <span> Administrations</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/Alumni.png" />
+                            <span> Alumni Managements</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/communication.png" />
+                            <span> Communications</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a [routerLink]="['communication/circular']" [routerLinkActive]="'active'"><i class="fas fa-th "></i> Circular Manager</a></li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-calendar-alt"></i> Configuration</a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a [routerLink]="['communication/config/template']" [routerLinkActive]="'active'"><i class="fas fa-th "></i> Template Manager</a></li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/intractiveclass.png" />
+                            <span> Intractive Classroom</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/operationActivity.png" />
+                            <span> Data and Reports</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/Websitesetting.png" />
+                            <span> Website Controls</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/AppSettings.png" />
+                            <span> App Controls</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/ERPSettings.png" />
+                            <span> ERP Control Settings</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <img style="height:22PX;" src="../../../assets/images/menuicons/mailbox.png" />
+                            <span> Mailbox</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <!--<li class="menu-title">Apps</li>-->
+
+                </ul>
+            </div>
+            <!-- Sidebar -->
+        </div>
+    </div>
+    <!-- Left Sidebar End -->
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+    <router-outlet></router-outlet>
+
+ <!--START FOOTER-->
+
+ <footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-8">
+                <div class="text-sm-right d-none d-sm-block">
+                    <a href="#" target="_blank">EDUMAQ</a> | Copyright © 2018 MAQYUIE SOLUTIONS PVT LTD | Helpline : 08095500010
+                </div>
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--START FOOTER-->
+
+</div>
+<!-- end main content-->
+</div>
+<!-- END layout-wrapper -->
+<!-- Right Sidebar -->
+<div class="right-bar">
+<div data-simplebar class="h-100">
+<div class="rightbar-title px-3 py-4">
+    <a href="javascript:void(0);" class="right-bar-toggle float-right">
+        <i class="mdi mdi-close noti-icon"></i>
+    </a>
+    <h5 class="m-0"><i class="mdi mdi-folder-clock-outline"></i> &nbsp;Task Timeline</h5>
+</div>
+<!-- Settings -->
+<hr class="mt-0" />
+
+<div class="p-4">
+    <div class="mb-2">
+
+    </div>
+    <div class="custom-control custom-switch mb-3">
+
+    </div>
+
+    <div class="mb-2">
+
+    </div>
+    <div class="custom-control custom-switch mb-3">
+
+    </div>
+
+    <div class="mb-2">
+
+    </div>
+    <div class="custom-control custom-switch mb-5">
+
+    </div>
+
+</div>
+</div> <!-- end slimscroll-menu-->
+</div>
+<!-- /Right-bar -->
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>

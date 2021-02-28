@@ -1,0 +1,184 @@
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-lg-12 page-col-nopadding">
+                <div class="card page-header-title card-title text-uppercase">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-10"><span class="pagetitle"><i class="fa fa-calendar-alt"></i>&nbsp; Academics Year</span></div>
+                            
+                            <div class="col-lg-2  ">
+                                <div style="float:right !important">
+                                    <!--<button style="margin-right:10px;margin-top: -10px;margin-bottom: -10px;" type="button" class="btn btn-info w-sm waves-effect waves-light"><i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Generate Roll No</button>
+<button style="margin-right:10px;margin-top: -10px;margin-bottom: -10px;" type="button" class="btn btn-success w-sm waves-effect waves-light"><i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Assign Roll No</button>-->
+
+                                    <button style="margin-right:0px;margin-top: -10px;margin-bottom: -10px;" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        OPTIONS<i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" style="position: absolute; transform: translate3d(-1px, 37px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-end">
+                                        <a class="dropdown-item" href="#" data-target="#addLeave" data-toggle="modal">Create New Leave</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        
+        <div class="row">
+            <div class="col-lg-4 col-left-nopadding">
+                <form [formGroup]="academicyearForm" (ngSubmit)="submitForm()" class="needs-validation" novalidate>
+                    <div class="card">
+                        <div class="card-body">
+                            <!--<div class="alert alert-secondary status-padding">
+    <button style="padding:3px 10px 3px 10px" type="button" class="btn btn-info  waves-effect waves-light m-1">ENQ103</button>
+    <button style="padding:3px 10px 3px 10px" type="button" class="btn btn-info btn-round  waves-effect waves-light m-1">Sunday 20-10-2020</button>
+</div>-->
+
+<input type="hidden" formControlName="id" name="id" class="form-control" />
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <label class="col-form-label">Academic Year</label>
+                                </div>
+                                <div class="col-lg-7">
+                                    <input type="text" formControlName="name" name="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                                    <!-- <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                        <div *ngIf="f.name.errors.required">First Name is required</div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <label class="col-form-label">Start Date</label>
+                                </div>
+                                <div class="col-lg-7">
+                                   
+                                    <!-- <input type="text" formControlName="startDate" [value]="d.date" (changeDate)="changeDate()" name="startDate" #d id="startDate" class="form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" data-provide="datepicker" data-date-autoclose="true" [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }"> -->
+                                    <!-- <input type="text" formControlName="startDate" name="startDate" id="startDate" class="form-control" (click)="d.toggle()" placeholder="mm/dd/yyyy"  ngbDatepicker #d="ngbDatepicker" [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }"> -->
+                                    <input type="text" class="form-control" id="startDate" #d placeholder="dd-mm-yyyy" formControlName="startDate" name="startDate" [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }" data-provide="datepicker" data-date-autoclose="true">
+                                    <!-- <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
+                                        <div *ngIf="f.startDate.errors.required">Start Date is required</div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <label class="col-form-label">End Date</label>
+                                </div>
+                                <div class="col-lg-7">
+                                    <input type="text" class="form-control" id="endDate" #d placeholder="dd-mm-yyyy" formControlName="endDate" name="endDate" [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }" data-provide="datepicker" data-date-autoclose="true">
+                                    <!-- <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
+                                        <div *ngIf="f.endDate.errors.required">End Date is required</div>
+                                        <div *ngIf="f.endDate.errors.mustMatch">End Date must be greater</div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <label class="col-form-label">Is Current Academic Year</label>
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="row" style="margin-top:8px">
+                                        <div class="col-lg-4">
+                                            <div class="form-check mb-3">
+                                                <input  formControlName="isCurrentAcademicYear" name="isCurrentAcademicYear" checked class="form-check-input" type="radio" id="exampleRadios1" [value]=true [ngClass]="{ 'is-invalid': submitted && f.isCurrentAcademicYear.errors }">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-check mb-3">
+                                                <input class="form-check-input" formControlName="isCurrentAcademicYear" name="isCurrentAcademicYear" type="radio" id="exampleRadios1" [value]=false [ngClass]="{ 'is-invalid': submitted && f.isCurrentAcademicYear.errors }">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row"></div>
+
+                            <div class="row button-items">
+                                <div class="col-lg-12 ">
+                                    <div class="col-lg-12 ">
+                                        <button type="submit" style="float:right;" class="btn w-sm btn-success waves-effect waves-light">
+                                            <i class="bx bx-check-double font-size-16  align-middle mr-2"></i><b>Save</b>
+                                        </button>
+                                        <button type="button" (click)="resetForm()" style="float:right;" class="btn w-sm  btn-warning waves-effect waves-light">
+                                            <i class="bx bx-revision  font-size-16 align-middle mr-2"></i><b>Reset</b>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="col-lg-8 page-col-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="alert alert-secondary status-padding">
+                            <div class="row" style="">
+                                <div class="col-lg-8 ">
+                                    <button  class="btn btn-info btn-sm  waves-effect waves-light m-1">{{totalRows}}</button>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" placeholder="Search" (keyup)="onKeyUpEvent($event)">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table table-centered table-nowrap mb-0">
+                                    <thead>
+                                        <tr class="thead-light">
+                                            <th>SNO</th>
+                                            <th>ACADEMIC YEAR NAME</th>
+                                            <th>START DATE</th>
+                                            <th>END DATE</th>
+                                            <th>STATUS</th>
+                                            <th style="text-align:center">ACTIONS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let academicyear of academicyearFilteredList; let i = index">
+                                            <td>{{i+1}}</td>
+                                            <td>{{academicyear.name}}</td>
+                                            <td>{{academicyear.startDate | date:'dd-MM-yyyy'}}</td>
+                                            <td>{{academicyear.endDate | date:'dd-MM-yyyy'}}</td>
+                                            <td *ngIf="academicyear.isCurrentAcademicYear"><span class="badge badge-pill badge-success">Current</span></td>
+                                            <td *ngIf="!academicyear.isCurrentAcademicYear"><span class="badge badge-pill badge-danger">Not Current</span></td>
+                                            <td style="text-align:center">
+                                                <a href="javascript:void(0);" (click)="updateForm(academicyear.id)" class="action-icon text-success"> <i class="far fa-edit  font-size-16"></i></a>
+                                                <a href="javascript:void(0);" (click)="deleteForm(academicyear.id)" class="action-icon text-danger"> <i class=" bx bxs-trash font-size-16"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="card ">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container-fluid -->
+</div>

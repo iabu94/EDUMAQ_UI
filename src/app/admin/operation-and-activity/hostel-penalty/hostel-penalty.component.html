@@ -1,0 +1,360 @@
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-lg-12 page-col-nopadding">
+                <div class="card page-header-title card-title text-uppercase">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4"><span class="pagetitle"><i
+                                        class=" fas fa-rupee-sign   text-success font-size-18"></i>&nbsp; Hostel
+                                    Penalty</span></div>
+                            <div class="col-lg-8  ">
+                                <div style="float:right !important">
+                                    <button class="btn btn-secondary dropdown-toggle btn-option" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="true">
+                                        MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right"
+                                        style="position: absolute; transform: translate3d(-1px, 37px, 0px); top: 0px; left: 0px; will-change: transform;"
+                                        x-placement="bottom-end">
+                                        <a class="dropdown-item" href="#" data-target="#addLeave"
+                                            data-toggle="modal">Create New Leave</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-left-nopadding">
+                <form [formGroup]="form" (ngSubmit)="submitForm()" autocomplete="off" class="needs-validation"
+                    novalidate>
+                    <input type="hidden" formControlName="id" name="id" class="form-control" />
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label class="col-form-label">Penalty For</label>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <select formControlName="personType" name="personType" class="form-control"
+                                                id="ddlAllocateFor" (change)="personTypeChange($event.target.value)">
+                                                <option value=1>Student</option>
+                                                <option value=2>Employee</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div *ngIf="selectedPersonType === 1" class="row" id="classDetails">
+                                        <div class="col-lg-3">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <label class="col-form-label">Class</label>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <select formControlName="classId" name="classId"
+                                                        class="form-control"
+                                                        (change)="selectClass($event.target.value)">
+                                                        <option value=0>Select Class</option>
+                                                        <option *ngFor="let class of classes" [value]="class.id">{{
+                                                            class.classCode }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <label class="col-form-label">Batch</label>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <select formControlName="batchId" name="batchId"
+                                                        class="form-control"
+                                                        (change)="selectBatch($event.target.value)">
+                                                        <option value=0>Select Batch</option>
+                                                        <option *ngFor="let batch of filteredBatches"
+                                                            [value]="batch.id">{{ batch.batchName }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <label class="col-form-label">Student Name</label>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <select formControlName="studentId" name="studentId"
+                                                        class="form-control select2" id="ddlStudent"
+                                                        (change)="selectStudent($event.target.value)">
+                                                        <option value=0>Student</option>
+                                                        <option *ngFor="let student of filteredStudents"
+                                                            [value]="student.id">{{ student.studentName }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="selectedPersonType === 2" class="row" id="empDetails">
+                                        <div class="col-lg-5">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <label class="col-form-label">Department</label>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <select formControlName="departmentId" name="departmentId"
+                                                        class="form-control"
+                                                        (change)="selectDepartment($event.target.value)">
+                                                        <option value=0>All Department</option>
+                                                        <option *ngFor="let department of departments"
+                                                            [value]="department.id">{{ department.departmentName }}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <label class="col-form-label">Employee Name</label>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <select formControlName="employeeId" name="employeeId"
+                                                        (change)="selectEmployee($event.target.value)"
+                                                        class="form-control select2" id="ddlEmployee">
+                                                        <option value=0>Select Employee</option>
+                                                        <option *ngFor="let employee of filteredEmployees"
+                                                            [value]="employee.id">{{ employee.employeeName }}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Employee Info-->
+                            <div *ngIf="selectedEmployee" class="row" style="margin-top: 7px;" id="empInfo">
+                                <div class="col-lg-3">
+                                    <img style="height:103px" [src]="selectedEmployee?.employeeImage">
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table class="table table-borderless  ">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-uppercase">Department</td>
+                                                        <td>:</td>
+                                                        <td class="text-danger">{{ getDepartment() }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-uppercase">Desigantion</td>
+                                                        <td>:</td>
+                                                        <td class="text-danger">IT</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-uppercase">Position</td>
+                                                        <td>:</td>
+                                                        <td class="text-danger">Computer Teacher</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Student Info-->
+                            <div *ngIf="selectedStudent" class="row" style="margin-top: 7px;" id="studInfo">
+                                <div class="col-lg-3">
+                                    <img style="height:103px" [src]="selectedStudent?.studentImage">
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table class="table table-borderless  ">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-uppercase">ADMISSION NO</td>
+                                                        <td>:</td>
+                                                        <td class="text-danger">{{ selectedStudent.admissionNo }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-uppercase">STUDENT NAME</td>
+                                                        <td>:</td>
+                                                        <td class="text-danger">{{ selectedStudent.studentName }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-uppercase">CLASS</td>
+                                                        <td>:</td>
+                                                        <td class="text-danger">{{
+                                                            getClass(selectedStudent.classCourseId) }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-uppercase">ROLL</td>
+                                                        <td>:</td>
+                                                        <td class="text-danger">{{ selectedStudent.rollNo }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class=" row ">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label class="col-form-label">Penalty For</label>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input formControlName="penaltyFor" name="penaltyFor" type="text"
+                                                class="form-control"
+                                                [ngClass]="{ 'is-invalid': submitted && f.penaltyFor.errors?.required }" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class=" row  ">
+                                        <div class="col-lg-12">
+                                            <label class="col-form-label">Penalty Amoumt</label>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <input formControlName="amount" name="amount" type="text"
+                                                class="form-control"
+                                                [ngClass]="{ 'is-invalid': submitted && f.amount.errors?.required }" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row margin-top">
+                                <div class="col-lg-12">
+                                    <label class="col-form-label">Description</label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea formControlName="description" name="description" class="form-control"
+                                        style="height:50px !important"></textarea>
+                                </div>
+                            </div>
+                            <div class="row margin-top">
+                                <div class="col-lg-12 text-sm-right ">
+                                    <button type="button" (click)="resetForm()"
+                                        class="btn btn-warning waves-effect waves-light">
+                                        <i class="bx bx-revision align-middle mr-2"></i>Reset
+                                    </button>
+                                    <button type="submit" class="btn btn-success waves-effect waves-light">
+                                        <i class="bx bx-check-double align-middle mr-2"></i> Save
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-6 page-col-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h5 class="card-title"><i class="fas fa-filter    text-success"> </i> HOSTEL PENALTY
+                                    HISTORY</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 table-responsive" id="tblPenaltyHis">
+                                <table class="table   mb-0  ">
+                                    <thead>
+                                        <tr class="thead-light">
+                                            <th style="width:15%">DATE</th>
+                                            <th style="width:40%">PENALTY FOR</th>
+                                            <th style="width:15%">AMOUNT </th>
+                                            <th style="width:15%" class="text-center">STATUS</th>
+                                            <th class="text-center" style="width:10%">ACTION</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let penalty of filteredPenalties">
+                                            <td>{{ penalty.createdDate | date: 'dd-MM-yyyy' }}</td>
+                                            <td>{{ penalty.penaltyFor }}</td>
+                                            <td>{{ penalty.amount }}</td>
+                                            <td class="text-center">
+                                                <span class="badge badge-pill" [ngClass]="{ 
+                                                    'badge-success': penalty.status, 
+                                                    'badge-danger': !penalty.status }">
+                                                    {{ penalty.status ? 'Taken' : 'Reverse'}}
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="#" (click)="reverse(penalty)" class="action-icon text-danger"
+                                                    data-toggle="modal" data-target="#reversePenalty">
+                                                    <i class=" far fa-times-circle  font-size-16"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container-fluid -->
+</div>
+
+<div *ngIf="showReverseDialog" class="modal fade exampleModal" id="reversePenalty" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" data-backdrop="static" aria-hidden="true">
+    <div style="max-width:500px !important" class="modal-dialog modal-dialog-centered  modal-dialog-scrollable"
+        role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Reverse Penalty</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label class="col-form-label">Reason</label>
+                    </div>
+                    <div class="col-lg-12">
+                        <textarea class="form-control" style="height:40px !important"></textarea>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+
+                    <div class="col-lg-12 text-sm-right">
+                        <button class="btn w-sm  btn-warning waves-effect waves-light">
+                            <i class="bx bx-revision  font-size-16 align-middle mr-2"></i><b>Reset</b>
+                        </button>
+                        <button type="button" class="btn btn-success "><i
+                                class="bx bx-check-double font-size-16  align-middle mr-2"></i>Save</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
