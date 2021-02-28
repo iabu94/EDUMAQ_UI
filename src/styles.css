@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+.toast-success{border:2px solid #34c38f!important;background-color:rgba(52,195,143,.8)!important}
+.toast-info{border:2px solid #50a5f1!important;background-color:rgba(80,165,241,.8)!important}
+.toast-warning{border:2px solid #f1b44c!important;background-color:rgba(241,180,76,.8)!important}
+.toast-danger{border:2px solid #f46a6a!important;background-color:rgba(244,106,106,.8)!important}
+.toast-pink{border:2px solid #e83e8c!important;background-color:rgba(232,62,140,.8)!important}
+.toast-light{border:2px solid #eff2f7!important;background-color:rgba(239,242,247,.8)!important}
+.toast-dark{border:2px solid #343a40!important;background-color:rgba(52,58,64,.8)!important}
+.toast-error{background-color:rgba(244,106,106,.8);border:2px solid #f46a6a}
+
+.datepicker { z-index: 1060 !important; }
+
+input[switch]:checked + label:before {
+    color: #fff;
+    content: attr(data-present-label);
+    right: auto;
+    left: 3px;
+}
