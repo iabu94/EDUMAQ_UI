@@ -1,0 +1,154 @@
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-lg-12 page-col-nopadding">
+                <div class="card page-header-title card-title text-uppercase">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4"><span class="pagetitle"><i class=" fas fa-list-ul   text-success font-size-18"></i>&nbsp; Student wise Hostel Report</span></div>
+                            <div class="col-lg-8  ">
+                                <div style="float:right !important">
+                                    <button   class="btn btn-secondary dropdown-toggle btn-option" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                       MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" style="position: absolute; transform: translate3d(-1px, 37px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-end">
+                                        <a class="dropdown-item" href="#" data-target="#addLeave" data-toggle="modal">Create New Leave</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 page-col-nopadding">
+                <div class="card">
+                    <div class="card-body" >
+                        <div class="alert alert-secondary status-padding">
+                            <div class="row" style="">
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <select class="form-control">
+                                                <option>Hostel</option>
+                                                <option>Boys Hostel</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <select class="form-control">
+                                                <option>All Room Type</option>
+                                                <option>A/C</option>
+                                                <option>Non-A/C</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <select class="form-control">
+                                                <option>All Status</option>
+                                                <option>Allocated</option>
+                                                <option>Deallocated</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input type="text" class="form-control" placeholder="dd-mm-yyyy" data-provide="datepicker" data-date-autoclose="true">
+                                </div>
+                                <div class="col-lg-2">
+                                    <input type="text" class="form-control" placeholder="dd-mm-yyyy" data-provide="datepicker" data-date-autoclose="true">
+                                </div>
+                                <div class="col-lg-1">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <button class="btn btn-success btn-search"><i class="bx bx-search-alt"></i></button>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <button class="btn btn-warning btn-search"><i class="fas fa-sync-alt "></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 table-responsive">
+                                <table class="table table-striped  mb-0 font-size-12">
+                                    <thead>
+                                        <tr class="thead-light">
+                                            <th style="width:10%">ADMS NO</th> 
+                                            <th style="width:15%">STUDENT NAME</th>
+                                            <th style="width:5%">CLASS</th>
+                                            <th style="width:5%">BATCH</th>
+                                            <th style="width:5%">ROLL</th>
+                                            <th style="width:10%">FLOOR</th> 
+                                            <th style="width:5%">ROOM</th>
+                                            <th style="width:5%">FARE</th>
+                                            <th style="width:15%">WARDEN</th>
+                                            <th style="width:5%">ALLOCATED</th>
+                                            <th style="width:10%">DEALLOCATED</th>
+                                            <th style="width:5%">MOBILE </th> 
+                                            <th style="width:5%" class="text-center">STATUS</th> 
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1020/2020</td>
+                                            <td>Ayushi Kumari</td>
+                                            <td>Class X</td>
+                                            <td>A</td>
+                                            <td>22</td>
+                                            <td>1st Floor</td>
+                                            <td>3 <i class="mdi mdi-air-conditioner text-success font-size-16 "></i></td> 
+                                            <td>500</td>
+                                            <td>Manish Kumar</td>
+                                            <td >01-04-2020 </td>
+                                            <td >31-04-2020 </td>
+                                            <td>8764543232</td>
+                                            <td class="text-center"><span class="badge badge-pill badge-danger">Deallocated</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1020/2020</td>
+                                            <td>Ayushi Kumari</td>
+                                            <td>Class X</td>
+                                            <td>A</td>
+                                            <td>22</td>
+                                            <td>1st Floor</td>
+                                            <td>3 <i class="mdi mdi-air-conditioner text-success font-size-16 "></i></td>
+                                            <td>500</td>
+                                            <td>Manish Kumar</td>
+                                            <td>01-04-2020 </td>
+                                            <td>31-04-2020 </td>
+                                            <td>8764543232</td>
+                                            <td class="text-center"><span class="badge badge-pill badge-success">Allocated</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1020/2020</td>
+                                            <td>Ayushi Kumari</td>
+                                            <td>Class X</td>
+                                            <td>A</td>
+                                            <td>22</td>
+                                            <td>1st Floor</td>
+                                            <td>5  </td>
+                                            <td>500</td>
+                                            <td>Manish Kumar</td>
+                                            <td>01-04-2020 </td>
+                                            <td>31-04-2020 </td>
+                                            <td>8764543232</td>
+                                            <td class="text-center"><span class="badge badge-pill badge-success">Allocated</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container-fluid -->
+</div>

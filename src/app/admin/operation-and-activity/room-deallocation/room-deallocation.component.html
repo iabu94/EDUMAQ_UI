@@ -1,0 +1,335 @@
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-lg-12 page-col-nopadding">
+                <div class="card page-header-title card-title text-uppercase">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4"><span class="pagetitle"><i
+                                        class="bx bx-cog  text-success font-size-18"></i>&nbsp; Room Deallocation</span>
+                            </div>
+                            <div class="col-lg-8  ">
+                                <div style="float:right !important">
+                                    <button class="btn btn-secondary dropdown-toggle btn-option" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="true">
+                                        MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right"
+                                        style="position: absolute; transform: translate3d(-1px, 37px, 0px); top: 0px; left: 0px; will-change: transform;"
+                                        x-placement="bottom-end">
+                                        <a class="dropdown-item" href="#" data-target="#addLeave"
+                                            data-toggle="modal">Create New Leave</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-left-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">Deallocate For</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <select class="form-control" id="ddlAllocateFor">
+                                            <option>Student</option>
+                                            <option>Employee</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="row" id="classDetails">
+                                    <div class="col-lg-3">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label class="col-form-label">Class</label>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <select class="form-control">
+                                                    <option>Select Class</option>
+                                                    <option>Class A</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label class="col-form-label">Batch</label>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <select class="form-control">
+                                                    <option>Select Batch</option>
+                                                    <option>A</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label class="col-form-label">Student Name</label>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <select class="form-control select2">
+                                                    <option>Student</option>
+                                                    <option>1 Ram Kumar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" id="empDetails">
+                                    <div class="col-lg-5">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label class="col-form-label">Department</label>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <select class="form-control">
+                                                    <option>All Department</option>
+                                                    <option>Information Technology</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <label class="col-form-label">Employee Name</label>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <select class="form-control select2">
+                                                    <option>Select Employee</option>
+                                                    <option>EMP001 Ram Kumar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row margin-top">
+                            <div class="col-lg-12">
+                                <h5 class="card-title"><i class="fas fa-filter    text-success"> </i> INSTALLMENT
+                                    DETAILS</h5>
+                            </div>
+                            <div class="col-lg-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr class="thead-light">
+                                            <th>INS NO</th>
+                                            <th>INSTALLMENT NAME</th>
+                                            <th>DUE DATE</th>
+                                            <th>PAID DATE</th>
+                                            <th>STATUS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>April 2020</td>
+                                            <td>20-04-2020</td>
+                                            <td>14-04-2020</td>
+                                            <td><span class="badge badge-pill badge-success">Paid</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>April 2020</td>
+                                            <td>20-04-2020</td>
+                                            <td>14-04-2020</td>
+                                            <td><span class="badge badge-pill badge-success">Paid</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>April 2020</td>
+                                            <td>20-04-2020</td>
+                                            <td>14-04-2020</td>
+                                            <td><span class="badge badge-pill badge-danger">Unpiad</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>April 2020</td>
+                                            <td>20-04-2020</td>
+                                            <td>14-04-2020</td>
+                                            <td><span class="badge badge-pill badge-danger">Unpiad</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>01</td>
+                                            <td>April 2020</td>
+                                            <td>20-04-2020</td>
+                                            <td>14-04-2020</td>
+                                            <td><span class="badge badge-pill badge-danger">Unpiad</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class=" row ">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">Deallocate From</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <select class="form-control">
+                                            <option>April 2020</option>
+                                            <option>May 2020</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class=" row  ">
+                                    <div class="col-lg-12">
+                                        <label class="col-form-label">Deallocation Date</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <input type="text" class="form-control" placeholder="dd-mm-yyyy"
+                                            data-provide="datepicker" data-date-autoclose="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row margin-top">
+                            <div class="col-lg-12">
+                                <label class="col-form-label">Deallocation Note</label>
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea class="form-control" style="height:60px !important"></textarea>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col-lg-12 text-sm-right ">
+                                <button class="btn   btn-warning waves-effect waves-light">
+                                    <i class="bx bx-revision   align-middle mr-2"></i>Reset
+                                </button>
+                                <button class="btn  btn-danger waves-effect waves-light">
+                                    <i class=" far fa-times-circle     align-middle mr-2"></i> Deallocate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 page-col-nopadding">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h5 class="card-title"><i class="fas fa-filter    text-success"> </i> HOSTEL DETAILS
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col-lg-12  ">
+                                <table style="width:100%">
+                                    <tr>
+                                        <td>
+                                            <h6>HOSTEL NAME</h6>
+                                        </td>
+                                        <td>
+                                            <h6>BOYS HOSTEL</h6>
+                                        </td>
+                                        <td>
+                                            <h6>ROOM TYPE</h6>
+                                        </td>
+                                        <td>
+                                            <h6>AC</h6>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h6>FLOOR</h6>
+                                        </td>
+                                        <td>
+                                            <h6>1ST </h6>
+                                        </td>
+                                        <td>
+                                            <h6>ROOM NO</h6>
+                                        </td>
+                                        <td>
+                                            <h6>1</h6>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h6>BED NO</h6>
+                                        </td>
+                                        <td>
+                                            <h6>7 </h6>
+                                        </td>
+                                        <td>
+                                            <h6>COST</h6>
+                                        </td>
+                                        <td>
+                                            <h6>500.00</h6>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h6>WARDEN NAME</h6>
+                                        </td>
+                                        <td>
+                                            <h6> ROHIT KUMAR</h6>
+                                        </td>
+                                        <td>
+                                            <h6>WARDEN CONTACT</h6>
+                                        </td>
+                                        <td>
+                                            <h6>9890987878</h6>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row margin-top" style="margin-top:30PX">
+                            <div class="col-lg-12">
+                                <h5 class="card-title"><i class="fas fa-filter    text-success"> </i> PREVIOUS HOSTEL
+                                    HISTORY</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 table-responsive">
+                                <table class="table table-striped  mb-0 font-size-12">
+                                    <thead>
+                                        <tr class="thead-light">
+                                            <th style="width:21%">HOSTEL</th>
+                                            <th style="width:15%">ROOM NO</th>
+                                            <th style="width:14%">BED NO</th>
+                                            <th style="width:17%">ROOM TYPE</th>
+                                            <th style="width:12%">APPLIED</th>
+                                            <th style="width:20%">DEALLOCATED</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Boy Hostel</td>
+                                            <td>04</td>
+                                            <td>19</td>
+                                            <td>AC</td>
+                                            <td>10-03-2019</td>
+                                            <td>20-06-2020</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container-fluid -->
+</div>

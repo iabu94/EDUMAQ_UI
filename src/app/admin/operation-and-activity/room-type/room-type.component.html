@@ -1,0 +1,174 @@
+<div class="page-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 page-col-nopadding">
+        <div class="card page-header-title card-title text-uppercase">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-4">
+                <span class="pagetitle">
+                  <i class="bx bx-cog text-success font-size-18"></i>&nbsp; Room
+                  Type
+                </span>
+              </div>
+              <div class="col-lg-8">
+                <div style="float: right !important">
+                  <button
+                    class="btn btn-secondary dropdown-toggle btn-option"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="true"
+                  >
+                    MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                  </button>
+                  <div
+                    class="dropdown-menu dropdown-menu-right"
+                    style="
+                      position: absolute;
+                      transform: translate3d(-1px, 37px, 0px);
+                      top: 0px;
+                      left: 0px;
+                      will-change: transform;
+                    "
+                    x-placement="bottom-end"
+                  >
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-target="#addLeave"
+                      data-toggle="modal"
+                      >Create New Leave</a
+                    >
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-left-nopadding">
+        <form [formGroup]="roomTypeForm" (ngSubmit)="submitForm()" class="needs-validation" novalidate>
+          <div class="card">
+            <div class="card-body">
+              <input type="hidden" formControlName="id" name="id" class="form-control" />
+              <div class="row">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Room Type</label>
+                </div>
+                <div class="col-lg-6">
+                  <input formControlName="type" name="type" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Description</label>
+                </div>
+                <div class="col-lg-8">
+                  <textarea formControlName="description" name="description" class="form-control" style="height: 60px !important"></textarea>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 7px">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Status</label>
+                </div>
+                <div class="col-lg-5">
+                  <select formControlName="isActive" name="status" class="form-control">
+                    <option value="true">Active</option>
+                    <option value="false">Deactive</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row margin-top">
+                <div class="col-lg-12 text-sm-right">
+                  <button type="button" (click)="resetForm()" class="btn btn-warning waves-effect waves-light mr-2">
+                    <i class="bx bx-revision align-middle mr-2"></i>Reset
+                  </button>
+                  <button type="submit" class="btn btn-success waves-effect waves-light" >
+                    <i class="bx bx-check-double align-middle mr-2"></i> Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-8 page-col-nopadding">
+        <div class="card">
+          <div class="card-body">
+            <div class="alert alert-secondary status-padding">
+              <div class="row">
+                <div class="col-lg-8">
+                  <button class="btn btn-info btn-sm">{{ totalRows }}</button>
+                </div>
+                <div class="col-lg-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                    (keyup)="onKeyUpEvent($event)"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12 table-responsive">
+                <table class="table table-striped mb-0">
+                  <thead>
+                    <tr class="thead-light">
+                      <th style="width: 5%">SNO</th>
+                      <th>ROOM TYPE</th>
+                      <th>Description</th>
+                      <th class="text-center">STATUS</th>
+                      <th class="text-center">ACTIONS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let roomType of filteredRoomTypes; let i = index">
+                      <td>{{ i + 1 }}</td>
+                      <td>{{ roomType.type }}</td>
+                      <td>{{ !!roomType.description ? roomType.description : 'N/A' }}</td>
+                      <td class="text-center">
+                        <span
+                          class="badge badge-pill"
+                          [ngClass]="
+                            roomType.isActive ? 'badge-success' : 'badge-danger'
+                          "
+                        >
+                          {{ roomType.isActive ? "Active" : "Deactive" }}
+                        </span>
+                      </td>
+                      <td style="text-align: center">
+                        <a
+                          href="javascript:void(0);"
+                          (click)="updateForm(roomType.id)"
+                          class="action-icon text-success"
+                        >
+                          <i class="far fa-edit font-size-16"></i
+                        ></a>
+                        <a
+                          href="javascript:void(0);"
+                          (click)="deleteForm(roomType.id)"
+                          class="action-icon text-danger"
+                        >
+                          <i class="bx bxs-trash font-size-16"></i
+                        ></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

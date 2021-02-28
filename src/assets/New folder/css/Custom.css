@@ -1,0 +1,209 @@
+/*=============================PATTERNS=======================*/
+.bg-pattern-primary {
+    background-color: #007be0;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-danger {
+    background-color: #ec2a44;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-success {
+    background-color: #06a710;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-info {
+    background-color: #00a7c1;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-warning {
+    background-color: #ec8000;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-dark {
+    background-color: #162023;
+    background-image: url("images/bg-pattern.png") !important;
+}
+
+.bg-pattern-secondary {
+    background-color: #606b75;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-light {
+    background-color: #f8f9fa;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-white {
+    background-color: #ffffff;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+/*=============================PATTERNS=======================*/
+.card-body {
+    padding: 1rem;
+}
+/*.card {
+    box-shadow: 0px 2px 4px rgba(31,30,47,0.1)!important;
+}*/
+.btn-group-sm > .btn, .btn-sm {
+    padding: 0px 10px 0px 10px !important;
+}
+
+.table td, .table th {
+    padding: .25rem !important;
+}
+
+#sidebar-menu ul li a i {
+    font-size: 15px !important;
+    min-width: 1.1rem !important;
+}
+
+#sidebar-menu ul li ul.sub-menu li ul.sub-menu li a {
+    padding: .2rem 1rem .3rem 3.1rem !important;
+    font-size: 12px !important;
+}
+
+    #sidebar-menu ul li ul.sub-menu li ul.sub-menu li a i {
+        font-size: 13px !important;
+    }
+
+#sidebar-menu ul li ul.sub-menu li a {
+    padding: .2rem 1.1rem .2rem 2.0rem !important;
+}
+
+.sub-sub-sub-menu {
+    margin-left: 15px !important;
+}
+
+.schlogo {
+    max-width: 85px !important;
+    padding: 0px;
+}
+
+.dispbtnright {
+    float: right;
+}
+
+.cardpadding {
+    padding: 11px 10px 12px 10px !important;
+}
+
+.page-col-nopadding {
+    padding: 0px 0px 0px 0px !important;
+}
+.col-left-nopadding {
+padding-left:0px  !important;
+}
+
+.page-header-title {
+    margin-top: -15px !important;
+    margin-bottom: 1px !important;
+}
+
+.status-padding {
+    padding: 3px 0px 3px 3px;
+    margin-top: -10px;
+}
+
+.form-control {
+    height: calc(1.3em + .80rem + 1px) !important;
+    padding: .30rem .50rem !important;
+}
+
+.card-title {
+    /*// padding: 0px 0px 15px 0 !important;*/
+}
+
+.custom-control {
+    margin-top: 5px !important;
+}
+
+.card-title-margin {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bg-soft-primary {
+    /*background-color: #f46a6a !important;*/
+    background-color: #00a7c1 !important;
+    /*background-color: #74788d !important;*/
+    /*background-color: #50a5f1 !important;*/
+}
+
+.mt-5, .my-5 {
+    margin-top: 0px !important;
+}
+
+.profile-user-wid-log {
+    margin-top: -70px;
+    margin-bottom: 10px !important;
+}
+
+.avatar-login {
+    height: 8rem;
+    width: 8rem;
+    margin-top: -23%;
+}
+
+.log-top-margin {
+    padding-top: 6rem !important;
+}
+
+.log-bot-margin {
+    margin-bottom: 0rem !important;
+}
+
+.container-fluid {
+    max-width: 100% !important;
+}
+
+.navbar-header {
+    max-width: 100% !important;
+}
+
+.modal-content {
+    border-radius: 2px !important;
+}
+
+.modal-header {
+    padding: 0.6rem 0.8rem !important;
+}
+
+.modal-footer {
+    padding: 0.30rem !important;
+}
+
+.margin-top-searchBar {
+margin-top:3px;
+}
+.timetable-cb {
+    padding:0.2rem;
+}
+.tdPad {
+    padding: 15px 80px 0px 0px;
+}
+
+/*---Full Calendar---*/
+
+        
+
+        #calendar {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .hoverEffect {
+            font-size: 29px;
+            position: absolute;
+            margin: 30px 55px;
+            cursor: pointer;
+        }
+.btn-padding {
+    padding: .3rem .5rem !important;
+}

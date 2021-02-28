@@ -1,0 +1,470 @@
+<div class="page-content">
+  <div class="container-fluid">
+    <!-- start page title -->
+    <div class="row">
+      <div class="col-lg-12 page-col-nopadding">
+        <div class="card page-header-title card-title text-uppercase">
+          <div class="card-body">
+            <!-- Room Allocation Header Start -->
+            <div class="row">
+              <div class="col-lg-4">
+                <span class="pagetitle"><i class="fas fa-building text-success font-size-18"></i>&nbsp; Room
+                  Allocation</span>
+              </div>
+
+              <div class="col-lg-8">
+                <div style="float: right !important">
+                  <button class="btn btn-secondary dropdown-toggle btn-option" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                    MORE OPTIONS<i class="mdi mdi-chevron-down"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" style="
+                      position: absolute;
+                      transform: translate3d(-1px, 37px, 0px);
+                      top: 0px;
+                      left: 0px;
+                      will-change: transform;
+                    " x-placement="bottom-end">
+                    <a class="dropdown-item" href="#" data-target="#addLeave" data-toggle="modal">Create New Leave</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Room Allocation Header End -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-left-nopadding">
+        <div class="card">
+          <div class="card-body">
+            <!--Hostel Details Start-->
+            <div class="row">
+              <div class="col-lg-12">
+                <h5 class="card-title"><i class="fas fa-home text-success"> </i> Hostel Details</h5>
+              </div>
+              <div class="col-lg-12 table-responsive">
+                <table class="table table-striped mb-0">
+                  <thead>
+                    <tr class="thead-light">
+                      <th style="width: 35%">HOSTEL</th>
+                      <th style="width: 20%">TYPE</th>
+                      <th style="width: 20%">CAPACITY</th>
+                      <th style="width: 20%">AVAILABLE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let hostel of hostels" (click)="selectHostel(hostel)"
+                      [ngClass]="{ 'table-success': selectedHostel?.id === hostel.id }" id="trHostel"
+                      style="cursor: pointer">
+                      <td>{{ hostel?.name }}</td>
+                      <td>{{ HostelType[hostel?.type] }}</td>
+                      <td>{{ getHostelCapacity(hostel) }}</td>
+                      <td>{{ getHostelAvailability(hostel) }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!--Hostel Details End-->
+
+            <!--Floor Details Start-->
+            <div *ngIf="showFloorDetail" class="row margin-top" id="divFloorDetails" style="margin-top: 25px">
+              <div class="col-lg-12 table-responsive">
+                <div class="col-lg-12" style="margin-left: -10px !important">
+                  <h5 class="card-title">
+                    <i class="fas fa-home text-success"> </i> Floor Details
+                  </h5>
+                </div>
+
+                <table class="table mb-0">
+                  <thead>
+                    <tr class="thead-light">
+                      <th style="width: 53%">FLOOR</th>
+                      <th style="width: 20%">ROOMS</th>
+                      <th style="width: 20%">CAPACITY</th>
+                      <th style="width: 20%">AVAILABLE</th>
+                      <th style="width: 5%"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let floor of filteredFloors">
+                      <tr id="trFloor" [ngClass]="{ 'table-success': selectedFloor?.id === floor.id }"
+                        style="cursor: pointer">
+                        <td>{{ floor.floorNo }}</td>
+                        <td>{{ getRoomsCount(floor) }}</td>
+                        <td>{{ getFloorCapacity(floor) }}</td>
+                        <td>{{ getFloorAvailability(floor) }}</td>
+                        <td class="text-center">
+                          <a id="btnHideShow" (click)="selectFloor(floor)"><i class="font-size-20 text-info fas"
+                              [ngClass]="{
+                                'fa-plus-square': !showRoomDetail || selectedFloor?.id !== floor.id,
+                                'fa-minus text-danger':
+                                  showRoomDetail && selectedFloor?.id === floor.id
+                              }"></i></a>
+                        </td>
+                      </tr>
+                      <tr *ngIf="showRoomDetail && selectedFloor?.id === floor.id">
+                        <td colspan="5" id="tblRoomDetails">
+                          <table class="table font-size-12">
+                            <thead>
+                              <tr>
+                                <th>ROOM NO</th>
+                                <th>ROOM TYPE</th>
+                                <th>CAPACITY</th>
+                                <th>AVAILABLE</th>
+                              </tr>
+                            </thead>
+                            <tbody class="alert-secondary">
+                              <tr *ngFor="let room of filteredRooms"
+                                [ngClass]="{ 'table-success': selectedRoom?.id === room.id }" id="trRoom"
+                                style="cursor: pointer" (click)="selectRoom(room)">
+                                <td>{{ room.roomNo }}</td>
+                                <td>{{ room.roomTypeId | roomType: roomTypes }}</td>
+                                <td>{{ room.capacity }}</td>
+                                <td>{{ getRoomAvailability(room) }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!--Floor Details End-->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 page-col-nopadding">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="form" autocomplete="off" (ngSubmit)="submitForm()" class="needs-validation" novalidate>
+              <input type="hidden" formControlName="id" name="id" class="form-control" />
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <label class="col-form-label">Allocate For</label>
+                    </div>
+                    <div class="col-lg-12">
+                      <select formControlName="allocateFor" name="allocateFor" class="form-control" id="ddlAllocateFor"
+                        (change)="changeAllocateFor($event.target.value)">
+                        <option value="1">Student</option>
+                        <option value="2">Employee</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-9">
+                  <div *ngIf="f.allocateFor.value === '1'" class="row" id="classDetails">
+                    <div class="col-lg-3">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <label class="col-form-label">Class</label>
+                        </div>
+                        <div class="col-lg-12">
+                          <select formControlName="classId" name="classId" (change)="changeClass($event.target.value)"
+                            class="form-control">
+                            <option value="0">Select Class</option>
+                            <option *ngFor="let class of classes" value="{{ class.id }}">
+                              {{ class.classCode }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <label class="col-form-label">Batch</label>
+                        </div>
+                        <div class="col-lg-12">
+                          <select formControlName="batchId" name="batchId" (change)="changeBatch($event.target.value)"
+                            class="form-control">
+                            <option value="0">Select Batch</option>
+                            <option *ngFor="let batch of filteredBatches" value="{{ batch.id }}">
+                              {{ batch.batchName }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <label class="col-form-label">Student Name</label>
+                        </div>
+                        <div class="col-lg-12">
+                          <select formControlName="studentId" name="studentId" class="form-control select2"
+                            id="ddlStudent" (change)="changeStudent($event.target.value)">
+                            <option value="0">Student</option>
+                            <option *ngFor="let student of filteredStudents" value="{{ student.id }}">
+                              {{ student.studentName }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="f.allocateFor.value === '2'" class="row" id="employeeSearch">
+                    <div class="col-lg-4">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <label class="col-form-label">Department</label>
+                        </div>
+                        <div class="col-lg-12">
+                          <select formControlName="departmentId" name="departmentId" class="form-control"
+                            (change)="changeDepartment($event.target.value)">
+                            <option value="0">All Department</option>
+                            <option *ngFor="let department of departments" [value]="department.id">{{
+                              department.departmentName }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <label class="col-form-label">Employee Name</label>
+                        </div>
+                        <div class="col-lg-12">
+                          <select formControlName="employeeId" name="employeeId" class="form-control select2"
+                            id="ddlEmployee">
+                            <option value="0">Select Employee</option>
+                            <option *ngFor="let employee of filteredEmployees" [value]="employee.id">{{
+                              employee.employeeName }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row margin-top" style="margin-top: 15px">
+                <div *ngIf="selectedStudent" class="col-lg-12" id="tblStudDetails">
+                  <table style="width: 100%">
+                    <tr>
+                      <td>
+                        <h6>STUDENT NAME</h6>
+                      </td>
+                      <td>
+                        <h6>:</h6>
+                      </td>
+                      <td>
+                        <h6 class="text-danger">{{ selectedStudent?.studentName }}</h6>
+                      </td>
+                      <td>
+                        <h6>ADMISSION NO</h6>
+                      </td>
+                      <td>
+                        <h6>:</h6>
+                      </td>
+                      <td>
+                        <h6 class="text-danger">{{ selectedStudent?.admissionNo }}</h6>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h6>CLASS</h6>
+                      </td>
+                      <td>
+                        <h6>:</h6>
+                      </td>
+                      <td>
+                        <h6 class="text-danger">{{ selectedClass?.classCode }}</h6>
+                      </td>
+                      <td>
+                        <h6>ROLL NO</h6>
+                      </td>
+                      <td>
+                        <h6>:</h6>
+                      </td>
+                      <td>
+                        <h6 class="text-danger">{{ selectedStudent?.rollNo }}</h6>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h6>FATHER'S NAME</h6>
+                      </td>
+                      <td>
+                        <h6>:</h6>
+                      </td>
+                      <td>
+                        <h6 class="text-danger">{{ selectedStudent?.fatherName }}</h6>
+                      </td>
+                      <td>
+                        <h6>MOBILE NO</h6>
+                      </td>
+                      <td>
+                        <h6>:</h6>
+                      </td>
+                      <td>
+                        <h6 class="text-danger">{{ selectedStudent?.smsMobNumber }}</h6>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div *ngIf="selectedEmployee" class="col-lg-12" id="tblempDetails">
+                  <table style="width: 100%">
+                    <tr>
+                      <td>
+                        <h6>EMPLOYEE NAME</h6>
+                      </td>
+                      <td>
+                        <h6>:</h6>
+                      </td>
+                      <td>
+                        <h6 class="text-danger">RAM KUMAR</h6>
+                      </td>
+                      <td>
+                        <h6>EMPLOYEE ID</h6>
+                      </td>
+                      <td>
+                        <h6>:</h6>
+                      </td>
+                      <td>
+                        <h6 class="text-danger">EMP003</h6>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h6>DEPARMENT</h6>
+                      </td>
+                      <td>
+                        <h6>:</h6>
+                      </td>
+                      <td>
+                        <h6 class="text-danger">Information Technology</h6>
+                      </td>
+                      <td>
+                        <h6>DESIGNATION</h6>
+                      </td>
+                      <td>
+                        <h6>:</h6>
+                      </td>
+                      <td>
+                        <h6 class="text-danger">COMPUTER</h6>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+              <div class="row margin-top">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Joining Date</label>
+                </div>
+                <div class="col-lg-4">
+                  <input type="text" class="form-control" id="joiningDate" #d placeholder="dd-mm-yyyy"
+                    formControlName="joiningDate" name="joiningDate"
+                    [ngClass]="{ 'is-invalid': submitted && f.joiningDate.errors }" data-provide="datepicker"
+                    data-date-autoclose="true">
+                </div>
+                <div class="col-lg-2">
+                  <label class="col-form-label">Advance Amt</label>
+                </div>
+                <div class="col-lg-2">
+                  <input [ngClass]="{ 'is-invalid': submitted && f.advanceAmount.errors }"
+                    formControlName="advanceAmount" name="advanceAmount" type="text" class="form-control" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-4">
+                  <label class="col-form-label">Allocation From (Installment)</label>
+                </div>
+                <div class="col-lg-4">
+                  <select formControlName="installmentId" name="installmentId"
+                    [ngClass]="{ 'is-invalid': submitted && f.advanceAmount.errors }" class="form-control">
+                    <option *ngFor="let installment of installments" [value]="installment.id">
+                      {{installment.installmentName}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12 text-sm-right">
+                  <button type="button" (click)="resetForm()" class="btn btn-warning waves-effect waves-light">
+                    <i class="bx bx-revision align-middle mr-2"></i>Reset
+                  </button>
+                  <button type="submit" class="btn btn-success waves-effect waves-light">
+                    <i class="bx bx-check-double align-middle mr-2"></i> Allocate
+                  </button>
+                </div>
+              </div>
+
+              <div id="bedDetails" *ngIf="showBedDetail">
+                <div class="row margin-top">
+                  <div class="col-lg-12">
+                    <h5 class="card-title">
+                      <i class="fas fa-bed text-success font-size-18"> </i> &nbsp; INFRA DETAILS
+                    </h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12 table-responsive">
+                    <table class="table table-striped mb-0">
+                      <thead>
+                        <tr class="thead-light">
+                          <th style="width: 20%">ROOM STATUS</th>
+                          <th style="width: 10%">BED NO</th>
+                          <th style="width: 10%">FARE</th>
+                          <th style="width: 30%">STUDENT NAME</th>
+                          <th style="width: 10%">CLASS</th>
+                          <th style="width: 10%">BATCH</th>
+                          <th style="width: 10%">ROLL</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let bed of filteredBeds">
+                          <td>
+                            <div *ngIf="!isAvailable(bed)" class="row">
+                              <div class="col-lg-12">
+                                <span class="badge badge-danger font-size-14">NOT AVAILABLE</span>
+                              </div>
+                            </div>
+                            <div *ngIf="isAvailable(bed)" class="row">
+                              <div class="col-lg-2">
+                                <div class="custom-control custom-radio mb-2">
+                                  <input id="{{bed.id}}" formControlName="bedId" name="bedId" [value]="bed.id"
+                                    type="radio" class="custom-control-input" />
+                                  <label class="custom-control-label" for="{{bed.id}}"></label>
+                                </div>
+                              </div>
+                              <div class="col-lg-10">
+                                <span class="badge badge-success font-size-14">AVAILABLE</span>
+                              </div>
+                            </div>
+                          </td>
+                          <td>{{ bed.bedNo }}</td>
+                          <td>{{ getBedFare() }}</td>
+                          <td>{{ getName(bed) }}</td>
+                          <td>{{ getClass(bed) }}</td>
+                          <td>{{ getBatch(bed) }}</td>
+                          <td>{{ getRollNo(bed) }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- container-fluid -->
+</div>
