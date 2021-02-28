@@ -1,0 +1,404 @@
+/*=============================PATTERNS=======================*/
+.bg-pattern-primary {
+    background-color: #007be0;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-danger {
+    background-color: #ec2a44;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-success {
+    background-color: #06a710;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-info {
+    background-color: #00a7c1;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-warning {
+    background-color: #ec8000;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-dark {
+    background-color: #162023;
+    background-image: url("images/bg-pattern.png") !important;
+}
+
+.bg-pattern-secondary {
+    background-color: #606b75;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-light {
+    background-color: #f8f9fa;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+.bg-pattern-white {
+    background-color: #ffffff;
+    background-image: url("../images/bg-pattern.png") !important;
+}
+
+/*=============================PATTERNS=======================*/
+.card-body{
+    padding:1rem;
+}
+/*.card {
+    box-shadow: 0px 2px 4px rgba(31,30,47,0.1)!important;
+}*/
+.btn-group-sm {
+    padding: 3px 10px 3px 10px !important ;
+}
+/*.btn-group-sm > .btn, .btn-sm {
+    padding: 3px 10px 3px 10px !important;
+}*/
+.table td, .table th{
+    padding:.25rem !important;
+}
+
+#sidebar-menu ul li a i {
+    font-size: 15px !important;
+    min-width: 1.1rem !important;
+}
+#sidebar-menu ul li ul.sub-menu li ul.sub-menu li a {
+    padding: .2rem 1rem .3rem 3.1rem !important;
+    font-size: 12px !important;
+}
+
+    #sidebar-menu ul li ul.sub-menu li ul.sub-menu li a i {
+        font-size: 13px !important;
+    }
+
+#sidebar-menu ul li ul.sub-menu li a {
+    padding: .2rem 1.1rem .2rem 2.0rem !important;
+}
+.sub-sub-sub-menu {
+    margin-left: 15px !important;
+}
+
+.schlogo {
+    max-width:85px !important;
+    padding:0px;
+}
+.dispbtnright{
+    float:right;
+}
+.cardpadding {
+    padding: 11px 10px 12px 10px !important;
+}
+.page-col-nopadding{
+    padding:0px 0px 0px 0px !important;
+}
+.page-header-title {
+    margin-top: -15px !important;
+    margin-bottom: 1px !important;
+}
+.status-padding {
+    padding: 3px 0px 3px 3px;
+    margin-top: -10px;
+}
+
+.form-control {
+    height: calc(1.3em + .80rem + 1px) !important;
+    padding: .30rem .50rem !important;
+
+}
+.card-title {
+   /*// padding: 0px 0px 15px 0 !important;*/
+}
+.custom-control{
+    margin-top:5px !important;
+}
+.card-title-margin {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.bg-soft-primary {
+    /*background-color: #f46a6a !important;*/
+    background-color: #00a7c1 !important;
+    /*background-color: #74788d !important;*/
+    /*background-color: #50a5f1 !important;*/
+}
+.col-left-nopadding {
+    padding-left: 0px !important;
+}
+.mt-5, .my-5 {
+    margin-top: 0px !important;
+}
+.profile-user-wid-log{
+    margin-top:-70px;
+    margin-bottom:10px!important;
+}
+.avatar-login {
+    height: 8rem;
+    width: 8rem;
+    margin-top:-23%;
+}
+.log-top-margin {
+    padding-top: 6rem !important;
+}
+.log-bot-margin {
+    margin-bottom: 0rem !important;
+}
+.container-fluid{
+    max-width:100% !important;
+}
+.navbar-header{
+    max-width:100% !important;
+}
+
+.modal-content {
+    border-radius: 2px !important;
+    
+}
+.modal-header {
+    padding: 0.6rem 0.8rem !important;
+}
+.modal-footer{
+    padding:0.30rem !important;
+}
+.card-bottom-margin {
+margin-bottom:0px !important;
+}
+.card-bottom-margin-1px {
+    margin-bottom: 1px !important;
+}
+.table .tdcolor td {
+    background-color: #49ca5d91;
+}
+.topbar-buttonMrg {
+    margin-right: 0px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    float: right !important
+}
+.badge-blue {
+   background-color:#00a7c1;
+    
+    color:white;
+}
+.table .bottom-th-bgclr {
+    background-color: #d7f4e9c2;
+}
+.readonlycolor {
+    background-color: #ff600024 !important;
+}
+.btn-top-header {
+    margin-right: 0px;
+    margin-top: -6px;
+    margin-bottom: -10px;
+    float:right !important;
+}
+.btn-top-action {
+    margin-right: 10px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.table .tdcolor td {
+    background-color: #49ca5d91;
+}
+.topbar-buttonMrg {
+    margin-right: 0px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    float: right !important
+}
+.badge-blue {
+   background-color:#00a7c1;
+    
+    color:white;
+}
+.table .bottom-th-bgclr {
+    background-color: #d7f4e9c2;
+}
+.readonlycolor {
+    background-color: #ff600024 !important;
+}
+
+.btn-top-action {
+    margin-right: 10px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.margin-top {
+margin-top:10px;
+}
+.border-bottom {
+border-bottom:1px solid lightgray ;
+}
+.btn-export {
+    margin-right: 0px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    padding: 1px 6px 2px 6px
+}
+.btn-option {
+    margin-right: 0px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+.btn-search {
+    padding: 5px 10px 3px 10px;
+    margin-left: -15px !important;
+    margin-top: 2px !important ;
+}
+
+/*/=========IMAGE UPLOAD============/*/
+
+
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+.box {
+    display: block;
+    min-width: 300px;
+    height: 200px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+
+.upload-options {
+    position: relative;
+    height: 30px;
+    background-color: cadetblue;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    -webkit-transition: background-color ease-in-out 150ms;
+    transition: background-color ease-in-out 150ms;
+}
+
+    .upload-options:hover {
+        background-color: #7fb1b3;
+    }
+
+    .upload-options input {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .upload-options label {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        font-weight: 400;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+        .upload-options label::after {
+            content: 'Add';
+            font-family: 'Material Icons';
+            position: absolute;
+            font-size: 25px;
+            color: red;
+            top: calc(127% - 2.5rem);
+            left: calc(50% - 1.25rem);
+            z-index: 0;
+        }
+
+        .upload-options label span {
+            display: inline-block;
+            width: 50%;
+            height: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+            .upload-options label span:hover i.material-icons {
+                color: lightgray;
+            }
+
+.js--image-preview {
+    height: 169px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-image: url("");
+    background-color: white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    .js--image-preview::after {
+        content: "photo_size_select_actual";
+        font-family: 'Material Icons';
+        position: relative;
+        font-size: 4.5em;
+        color: #e6e6e6;
+        top: calc(50% - 3rem);
+        left: calc(50% - 2.25rem);
+        z-index: 0;
+    }
+
+    .js--image-preview.js--no-default::after {
+        display: none;
+    }
+
+    .js--image-preview:nth-child(2) {
+        background-image: url("http://bastianandre.at/giphy.gif");
+    }
+
+i.material-icons {
+    -webkit-transition: color 100ms ease-in-out;
+    transition: color 100ms ease-in-out;
+    font-size: 2.25em;
+    line-height: 55px;
+    color: white;
+    display: block;
+}
+
+.drop {
+    display: block;
+    position: absolute;
+    background: rgba(95, 158, 160, 0.2);
+    border-radius: 100%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+.animate {
+    -webkit-animation: ripple 0.4s linear;
+    animation: ripple 0.4s linear;
+}
+
+@-webkit-keyframes ripple {
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2.5);
+        transform: scale(2.5);
+    }
+}
+
+@keyframes ripple {
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2.5);
+        transform: scale(2.5);
+    }
+}
